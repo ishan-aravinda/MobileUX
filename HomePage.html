@@ -1,0 +1,308 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Include JQuery Mobile -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Home</title>
+    <style>
+        [data-role=footer] {
+            bottom: 0;
+            width: 100%;
+        }
+        
+        body {
+            background-image: url("./images/bg.png ");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center; 
+            background-attachment: fixed; 
+        }
+        
+        .ui-page {
+            background: transparent;
+        }
+        
+        .ui-content {
+            background: transparent;
+        }
+        
+        .body-text {
+            color: white;
+            font-size: 25px;
+        }
+        
+        .button {
+            background-color: #4CAF50;
+            /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .btn-block {
+            border-radius: 35px;
+            width: 25%;
+            height: 55px;
+            text-align: center;
+            color:white;
+            background-color:#FFA630;
+        }
+        
+        .card {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            margin: 25px;
+            width: 30%;
+            align-items: center;
+        }
+        /* On mouse-over, add a deeper shadow */
+        
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+        /* Add some padding inside the card container */
+        
+        .container {
+            padding: 2px 16px;
+        }
+        
+        .poi_img {
+            width: 75%;
+        }
+        /* Starts */
+        
+        .checked {
+            color: orange;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .rate {
+            float: left;
+            height: 46px;
+            padding: 0 10px;
+        }
+        
+        .rate:not(:checked)>input {
+            position: absolute;
+            top: -9999px;
+        }
+
+            .rate:not(:checked) > label {
+                float: right;
+                width: 1em;
+                overflow: hidden;
+                white-space: nowrap;
+                cursor: pointer;
+                font-size: 30px;
+                color: #ccc;
+            }
+
+            .rate:not(:checked) > label:before {
+                content: '★ ';
+            }
+        
+        .rate>input:checked~label {
+            color: #ffc700;
+        }
+        
+        .rate:not(:checked)>label:hover,
+        .rate:not(:checked)>label:hover~label {
+            color: #deb217;
+        }
+        
+        .rate>input:checked+label:hover,
+        .rate>input:checked+label:hover~label,
+        .rate>input:checked~label:hover,
+        .rate>input:checked~label:hover~label,
+        .rate>label:hover~input:checked~label {
+            color: #c59b08;
+        }
+        /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+    </style>
+
+
+</head>
+
+
+<body>
+
+    <div data-role="page">
+
+        <div align="center" data-role="header">
+            <div data-role="header">
+          
+              <div data-demo-html="true">
+                <a href="./HomePage.html"><img src="./images/logo.png" alt="Treasure Train Logo" width="200" height="200" style="float:left;"></a>
+                <div data-role="navbar" data-grid="c">
+
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                                <li class="nav-item active">
+                                      <a class="nav-link" href="./HomePage.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                      <a class="nav-link" href="./booking.html">Book Tickets</a>
+                                </li>
+                                <li class="nav-item">
+                                      <a class="nav-link" href="./aboutus.html">About Us</a>
+                                </li>
+                                <li class="nav-item">
+                                      <a class="nav-link" href="./login.html">Play</a>
+                                </li>	  
+                                  </ul>
+                  <!-- <ul>
+                    <li><a href="./HomePage.html" class="ui-btn-active">Home</a></li>
+                    <li><a href="./booking.html">Book Tickets</a></li>
+                    <li><a href="/aboutus.html">About Us</a></li>
+                    <li><a href="./login.html">Play Game</a></li>
+                  </ul> -->
+                </div><!-- /navbar -->
+              </div>
+              <!--/demo-html -->
+            </div></div>
+
+
+
+        <div data-role="content">
+
+            <video width="100%" height="300" controls>
+                <source src="movie.mp4" type="video/mp4">
+            </video>
+            <div align="center" style="margin-top:15px;">
+                <button data-role="none" class="btn btn-lg btn-primary btn-block" type="button"> Play Now </button>
+            </div>
+                <div align="center" style="display: inline-block;">
+
+                    <div align="center" style="display:inline-flex; ">
+
+                        <div class="card">
+                            <a href="#" onclick="goToLocation('Coco-Cola london-eye')">
+                                <img class="card-img-top" src="./images/Locations/Coco-Cola london-eye.jpg" class="poi_img" style="width:100%">
+                                <div class="card-body">
+                                    <h4 class="card-title">Coco Cola London Eye</h4>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card">
+                            <a href="#" onclick="goToLocation('British Museum Great Court')">
+                                <img class="card-img-top" src="./images/Locations/British-Museum-Great-Court.jpg" alt="location" class="poi_img" style="width:100%">
+                                <div class="card-body">
+                                    <h4 class="card-title">British Museum Great Court</h4>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card">
+                            <a href="#" onclick="goToLocation('Buckingham Palace')">
+                                <img class="card-img-top" src="./images/Locations/Buckingham_Palace.jpg" alt="location" class="poi_img" style="width:100%">
+                                <div class="card-body">
+                                    <h4 class="card-title">Buckingham Palace</h4>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div align="center" style="display:inline-flex">
+
+                        <div class="card">
+                            <a href="#" onclick="goToLocation('Kensington Palace')">
+                                <img class="card-img-top" src="./images/Locations/kensington-palace.jpg" alt="location" class="poi_img" style="width:100%">
+                                <div class="card-body">
+                                    <h4 class="card-title">Kensington Palace</h4>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card">
+                            <a href="#" onclick="goToLocation('Tower of London')">
+                                <img class="card-img-top" src="./images/Locations/Tower-of-London.jpg" alt="location" class="poi_img" style="width:100%">
+                                <div class="card-body">
+                                    <h4 class="card-title">Tower of London</h4>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="card">
+                            <img class="card-img-top" src="./images/Locations/Coco-Cola london-eye.jpg" alt="location" class="poi_img" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">Location 6</h4>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+</div>
+<div class="footer1">
+        <br>
+        <p>About Us</p>
+        <p>It is a startup that has a fun process to book tickets and visit places in London. Book tickets, Play Game, Review Places
+        all in one platform.</p>
+            <div class="div3">
+                <a href="https://www.facebook.com/Train/">
+                    <img src="images/facebook.JPG" height="30" width="30" style="margin-right:10px">
+                </a>
+                <a href="https://twitter.com/train?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+                    <img src="images/twitter.JPG" height="30" width="30" style="margin-right:10px">
+                </a>
+                <a href="https://in.linkedin.com/in/train-to-prosper-67a5a4111?trk=people-guest_people_search-card">
+                    <img src="images/linkedin.JPG" height="30" width="30" style="margin-right:10px">
+                </a>
+                <a href="https://github.com/2016102/MobileUX/tree/ishan">
+                    <img src="images/github.JPG" height="30" width="30" style="margin-right:10px">
+                </a>
+            </div>
+            <br>
+            <div id="div1">
+              <a href="https://goo.gl/maps/Mg9jvXbMktWD1LVd7">
+                   <img src="images/location.JPG" height="25" width="25"><p>Galle Road Dehiwala</p>
+              </a>
+              <a href="tel:0094769675159">
+                  <img src="images/phone.JPG" height="25" width="25"><p>0094769675159</p>
+              </a>
+              <a href = 'mailto:treasuretrain@gmail.com'>
+                  <img src="images/email.JPG" height="25" width="25"><p>treasuretrain@gmail.com</p>
+              </a>
+          </div>
+        </div>
+
+                <script>
+                    function goToLocation(locationName) {
+                        window.location = './location.html?locationname=' + locationName;
+
+                    }
+                </script>
+
+</body>
+
+
+</html>

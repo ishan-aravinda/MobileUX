@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+    <style>
+        body {
+            background-image: url("./images/bg.png ");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center; 
+            background-attachment: fixed; 
+        }
+
+        .ui-page {
+            background: transparent;
+        }
+
+        .ui-content {
+            background: transparent;
+        }
+        /* Style the buttons that are used to open and close the accordion panel */
+
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
+            /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
+            .active,
+            .accordion:hover {
+                background-color: #ccc;
+            }
+        /* Style the accordion panel. Note: hidden by default */
+        /* .panel {
+            padding: 0 18px;
+            background-color: white;
+            display: none;
+            overflow: hidden;
+        } */
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        .accordion:after {
+            content: '\02795';
+            /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2796";
+            /* Unicode character for "minus" sign (-) */
+        }
+    </style>
+</head>
+
+<body onload="onLoad()">
+
+    <div data-role="page">
+
+        <div data-role="header">
+            <img src="./images/logo.png" alt="Treasure Train Logo" width="200" height="200">
+
+            <div data-demo-html="true">
+
+                <div data-role="navbar" data-grid="c">
+                    <ul>
+                        <li><a href="./HomePage.html" class="ui-btn-active">Home</a></li>
+                        <li><a href="./booking.html">Book Tickets</a></li>
+                        <li><a href="/aboutus.html">About Us</a></li>
+                        <li><a href="./login.html">Play Game</a></li>
+                    </ul>
+                </div>
+                <!-- /navbar -->
+            </div>
+            <!--/demo-html -->
+
+        </div>
+
+        <div data-role="content">
+
+            <button class="accordion">Profile Details</button>
+            <div class="panel">
+                <p>Username</p>
+                <input type="text" name="username" placeholder="Username" readonly>
+                <p>Email</p>
+                <input type="text" name="email" placeholder="Email" readonly>
+            </div>
+
+            <button class="accordion">Change Password</button>
+            <div class="panel">
+                <p>Enter Old Password</p>
+                <input type="password" name="oldpass" placeholder="Old Password">
+                <p>Enter New Password</p>
+                <input type="password" name="newpass" placeholder="New Password">
+                <p>Confirm New Password</p>
+                <input type="password" name="confirmnewpass" placeholder="Confirm Password">
+            </div>
+
+            <button class="accordion">Favourites</button>
+
+            <div id="favourites-div" class="panel">
+                <div id="favourites">
+                    <!-- favourite list goes here -->
+                </div>
+
+                <button onclick="sendEmail()">Email List</button>
+            </div>
+        </div>
+
+
+        <div data-role="footer">
+
+            <!-- Footer -->
+            <footer class="page-footer font-small stylish-color-dark pt-4">
+
+                <!-- Footer Links -->
+                <div class="container text-center text-md-left">
+
+                    <!-- Grid row -->
+                    <div class="row">
+
+                        <!-- Grid column -->
+                        <div class="col-md-4 mx-auto">
+
+                            <!-- Content -->
+                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
+                            <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <hr class="clearfix w-100 d-md-none">
+
+                        <!-- Grid column -->
+                        <div class="col-md-2 mx-auto">
+
+                            <!-- Links -->
+                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Link 3</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Link 4</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <hr class="clearfix w-100 d-md-none">
+
+                        <!-- Grid column -->
+                        <div class="col-md-2 mx-auto">
+
+                            <!-- Links -->
+                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Link 3</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Link 4</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- Grid column -->
+
+                        <hr class="clearfix w-100 d-md-none">
+
+                        <!-- Grid column -->
+                        <div class="col-md-2 mx-auto">
+
+                            <!-- Links -->
+                            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="#!">Link 1</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Link 2</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Link 3</a>
+                                </li>
+                                <li>
+                                    <a href="#!">Link 4</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <!-- Grid column -->
+
+                    </div>
+                    <!-- Grid row -->
+
+                </div>
+                <!-- Footer Links -->
+                <!-- Social buttons -->
+                <ul class="list-unstyled list-inline text-center">
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-fb mx-1">
+                            <i class="fab fa-facebook-f"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-tw mx-1">
+                            <i class="fab fa-twitter"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-gplus mx-1">
+                            <i class="fab fa-google-plus-g"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-li mx-1">
+                            <i class="fab fa-linkedin-in"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-dribbble mx-1">
+                            <i class="fab fa-dribbble"> </i>
+                        </a>
+                    </li>
+                </ul>
+                <!-- Social buttons -->
+
+            </footer>
+
+        </div>
+
+    </div>
+
+    <script src="js/CookieFunctions.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+    <!-- <script src="js/firebase-init.js"></script> -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
+            authDomain: "train-cde96.firebaseapp.com",
+            databaseURL: "https://train-cde96.firebaseio.com",
+            projectId: "train-cde96",
+            storageBucket: "train-cde96.appspot.com",
+            messagingSenderId: "45911183152",
+            appId: "1:45911183152:web:b27375f04a3b109b5442f5",
+            measurementId: "G-B29GE7SWEX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.database();
+    </script>
+
+    <script>
+        function onLoad() {
+            var coockie = getCookie("uid");
+            var favouriteList = document.getElementById("favourites");
+            return firebase.database().ref('/users/' + coockie).once('value').then(function (snapshot) {
+                snapshot.forEach((child) => {
+                    child.forEach((child2) => {
+                        var newItem = document.createElement("p");
+                        var text = document.createTextNode(child2.val().locationId);
+                        newItem.appendChild(text);
+                        favouriteList.appendChild(newItem);
+                    });
+                });
+            });
+        }
+        function sendEmail() {
+            var x = document.getElementById("favourites").querySelectorAll("p");
+            var emailAddress = getCookie("email");
+            var emailBody;
+            var i;
+            for (i = 0; i < x.length; i++) {
+                emailBody = emailBody + x[i].innerHTML + " \n";
+            }
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "treasuretrain1@gmail.com",
+                Password: "TreasureTrain123",
+                To: emailAddress,
+                From: "treasuretrain1@gmail.com",
+                Subject: "These are your favourite locations..",
+                Body: emailBody,
+            }).then(
+                message => alert("mail sent successfully")
+            );
+        }
+    </script>
+
+    <script src="js/CookieFunctions.js"></script>
+
+</body>
+
+</html>

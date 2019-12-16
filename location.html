@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+    <style>
+        body {
+            background-image: url("./images/bg.png ");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+        
+        .ui-page {
+            background: transparent;
+        }
+        
+        .ui-content {
+            background: transparent;
+        }
+        
+        [data-role=footer] {
+            bottom: 0;
+            position: absolute !important;
+            top: auto !important;
+            width: 100%;
+        }
+        
+        .body-text {
+            color: white;
+            font-size: 25px;
+        }
+        
+        .h2-style {
+            color: #fff;
+            font-size: 50px;
+        }
+        
+        .a {
+            color: yellow;
+        }
+        
+        .btn-block {
+            border-radius: 35px;
+            width: 25%;
+            height: 65px;
+            text-align: center;
+            color: white;
+            background-color: #FFA630;
+        }
+        
+        .review-text {
+            width: 790px;
+            margin: auto;
+        }
+        
+        #rating span.active {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body onload="loadData()">
+
+
+    <div data-role="page" id="location">
+
+        <div data-role="header">
+
+            <img src="./images/logo.png" alt="Treasure Train Logo" width="200" height="200">
+
+            <div data-demo-html="true">
+
+                <div data-role="navbar" data-grid="c">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./HomePage.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./booking.html">Book Tickets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./aboutus.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./login.html">Play</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /navbar -->
+            </div>
+            <!--/demo-html -->
+
+        </div>
+
+        <div data-role="content" align="center">
+            <br>
+            <h2 id="location-name" class="h2-style"></h2>
+            <br><br>
+            <img id="location_image" src="#" alt="location image" width="790" height="460">
+            <br><br>
+            <div align="center" style="margin-top:15px;">
+                <button data-role="none" class="btn btn-lg btn-primary btn-block" type="button" onclick="addToFavourites()"> Add to Favourites </button>
+            </div>
+
+            </span>
+
+            <br><br>
+
+            <!-- Rating Starts -->
+
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+            <br><br>
+            <p id="location-desc" class="body-text"></p>
+            <br>
+            <div align="center" style="margin-top:15px;">
+                <button data-role="none" class="btn btn-lg btn-block" type="button" onclick="goToBooking()"> Book Tickets </button>
+            </div>
+            <br>
+            <div align="center" style="margin-top:15px;">
+                <button data-role="none" class="btn btn-lg btn-primary btn-block" type="button" onclick="goToGame()"> Play Now </button>
+            </div>
+            <br>
+
+
+            <br>
+            <br>
+
+            <h2 class="h2-style">Reviews</h2>
+
+            <br>
+            <br>
+
+
+            <div id="reviews" align="left" class="body-text">
+                <!-- reviews goes here -->
+            </div>
+
+            <br>
+            <br>
+
+            <h2 class="h2-style">Leave a Review</h2>
+            <br>
+            <div id='rating'>
+                <span class="fa fa-star" id="1" value='1'></span>
+                <span class="fa fa-star" id="2" value='1'></span>
+                <span class="fa fa-star" id="3" value='1'></span>
+                <span class="fa fa-star" id="4" value='1'></span>
+                <span class="fa fa-star" id="5" value='1'></span>
+            </div>
+            <br>
+            <div class="review-text">
+                <textarea placeholder="Leave a review"></textarea>
+            </div>
+            <br>
+            <div align="center" style="margin-top:15px;">
+                <button data-role="none" class="btn btn-lg btn-primary btn-block" type="button" onclick="submitReview()"> Submit Review </button>
+            </div>
+
+        </div>
+        <br>
+        <div class="footer1">
+            <br>
+            <p>About Us</p>
+            <p>It is a startup that has a fun process to book tickets and visit places in London. Book tickets, Play Game, Review Places all in one platform.</p>
+            <div class="div3">
+                <a href="https://www.facebook.com/Train/">
+                    <img src="images/facebook.JPG" height="30" width="30" style="margin-right:10px">
+                </a>
+                <a href="https://twitter.com/train?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+                    <img src="images/twitter.JPG" height="30" width="30" style="margin-right:10px">
+                </a>
+                <a href="https://in.linkedin.com/in/train-to-prosper-67a5a4111?trk=people-guest_people_search-card">
+                    <img src="images/linkedin.JPG" height="30" width="30" style="margin-right:10px">
+                </a>
+                <a href="https://github.com/2016102/MobileUX/tree/ishan">
+                    <img src="images/github.JPG" height="30" width="30" style="margin-right:10px">
+                </a>
+            </div>
+            <br>
+            <div id="div1">
+                <a href="https://goo.gl/maps/Mg9jvXbMktWD1LVd7">
+                    <img src="images/location.JPG" height="25" width="25">
+                    <p>Galle Road Dehiwala</p>
+                </a>
+                <a href="tel:0094769675159">
+                    <img src="images/phone.JPG" height="25" width="25">
+                    <p>0094769675159</p>
+                </a>
+                <a href='mailto:treasuretrain@gmail.com'>
+                    <img src="images/email.JPG" height="25" width="25">
+                    <p>treasuretrain@gmail.com</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+    <!-- <script src="js/firebase-init.js"></script> -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
+            authDomain: "train-cde96.firebaseapp.com",
+            databaseURL: "https://train-cde96.firebaseio.com",
+            projectId: "train-cde96",
+            storageBucket: "train-cde96.appspot.com",
+            messagingSenderId: "45911183152",
+            appId: "1:45911183152:web:b27375f04a3b109b5442f5",
+            measurementId: "G-B29GE7SWEX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.database();
+    </script>
+
+    <script>
+        // Get given rating
+        var rating;
+        document.querySelector('#rating').addEventListener('click', function(e) {
+            if (e.target.nodeName === 'SPAN') {
+                var currentSibling = e.target;
+                currentSibling.classList.add('checked');
+                while ((currentSibling = currentSibling.previousElementSibling)) {
+                    currentSibling.classList.add('checked');
+                }
+                rating = e.target.id;
+            }
+        });
+
+        function submitReview() {
+            // Get Review Text
+            var review = document.getElementById("review-text").value;
+            var location = getUrlParams();
+            //add rating and review to DB
+            firebase.database().ref('reviews/').push({
+                review: review,
+                location_name: location,
+                rating: rating
+            });
+            review.innerHTML = " ";
+        }
+
+        function loadData() {
+            var locationname = getUrlParams();
+            document.getElementById("location-name").innerHTML = locationname;
+            var ref = firebase.database().ref("reviews");
+            ref.orderByChild("location_name").equalTo(locationname).on("child_added", function(snapshot) {
+                var newReview = document.createElement("p");
+                var horizontalLine = document.createElement("hr");
+                var node = document.createTextNode(snapshot.val().review);
+                newReview.appendChild(node);
+                var ReviewDiv = document.getElementById("reviews");
+                /// create rating stars
+                var numOfStars = snapshot.val().rating;
+                var i;
+                for (i = 0; i < 5; i++) {
+                    var star = document.createElement("span");
+                    if (i < numOfStars) {
+                        star.setAttribute("class", "fa fa-star checked");
+                        star.style.float = "right";
+                    } else {
+                        star.setAttribute("class", "fa fa-star");
+                        star.style.float = "right";
+                    }
+                    ReviewDiv.appendChild(star);
+                }
+                ReviewDiv.appendChild(newReview);
+                ReviewDiv.appendChild(horizontalLine);
+            });
+            var ref2 = firebase.database().ref("locations");
+            ref2.orderByChild("name").equalTo(locationname).on("child_added", function(snapshot) {
+                var imageurl = snapshot.val().image;
+                var location_desc = snapshot.val().description;
+                document.getElementById("location_image").src = imageurl;
+                document.getElementById("location-desc").innerHTML = location_desc;
+            });
+        }
+
+        function getUrlParams() {
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var locationname = url.searchParams.get("locationname");
+            return locationname;
+        }
+
+        function addToFavourites() {
+            var favLocation = getUrlParams();
+            var coockie = getCookie("uid");
+            firebase.database().ref('users/' + coockie + '/favourites').push({
+                locationId: favLocation
+            });
+            alert("Location added to Favourites");
+        }
+
+        function goToBooking() {
+            window.location = "./booking.html";
+        }
+
+        function goToGame() {
+            window.location = "./login.html";
+
+        }
+    </script>
+
+    <script src="js/CookieFunctions.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <style>
+        body {
+            background-image: url("./images/bg.png ");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+        
+        .ui-page {
+            background: transparent;
+        }
+        
+        .ui-content {
+            background: transparent;
+        }
+        
+        #map {
+            height: 88.7%;
+            /* The height is 400 pixels */
+            width: 100%;
+            /* The width is the width of the web page */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div data-role="page">
+
+        <div align="center" data-role="header">
+            <div data-role="header">
+
+                <div data-demo-html="true">
+                    <a href="./HomePage.html"><img src="./images/logo.png" alt="Treasure Train Logo" width="200" height="200" style="float:left;"></a>
+                    <div data-role="navbar" data-grid="c">
+                        <ul>
+                            <li><a href="./HomePage.html">Home</a></li>
+                            <li><a href="./booking.html">Book Tickets</a></li>
+                            <li><a href="/aboutus.html">About Us</a></li>
+                            <li><a href="./login.html" class="ui-btn-active">Play Game</a></li>
+                        </ul>
+                    </div>
+                    <!-- /navbar -->
+                </div>
+                <!--/demo-html -->
+            </div>
+        </div>
+    </div>
+
+    <div data-role="content">
+        <div id="map" style="position: absolute; bottom: 0px;"></div>
+    </div>
+    </div>
+
+    <script>
+        function initMap() {
+            // Coordinates of locations
+            var london = {
+                lat: 51.5074,
+                lng: 0.1278
+            };
+            var britishMuseumCourt = {
+                lat: 51.5194,
+                lng: 0.1270
+            };
+            var buckinghamPalace = {
+                lat: 51.5014,
+                lng: 0.1419
+            };
+            var cocaColaLondonEye = {
+                lat: 51.5033,
+                lng: 0.1195
+            };
+            var kensingtonPalace = {
+                lat: 51.5050,
+                lng: 0.1877
+            };
+            var TowerOfLondon = {
+                lat: 51.5081,
+                lng: 0.0759
+            };
+            var infoWindow = new google.maps.InfoWindow;
+            var infoWindow1 = new google.maps.InfoWindow;
+            var infoWindow2 = new google.maps.InfoWindow;
+            var infoWindow3 = new google.maps.InfoWindow;
+            var infoWindow4 = new google.maps.InfoWindow;
+            var infoWindow5 = new google.maps.InfoWindow;
+            var britishMuseumCourtInfo = document.createElement('div');
+            var cocaColaLondonEyeInfo = document.createElement('div');
+            var buckinghamPalaceInfo = document.createElement('div');
+            var kensingtonPalaceInfo = document.createElement('div');
+            var TowerOfLondonInfo = document.createElement('div');
+            var LondonInfo = document.createElement('div');
+            var strong = document.createElement('strong');
+            var strong1 = document.createElement('strong');
+            var strong2 = document.createElement('strong');
+            var strong3 = document.createElement('strong');
+            var strong4 = document.createElement('strong');
+            var strong5 = document.createElement('strong');
+            strong.textContent = "British-Museum-Great-Court"
+            strong1.textContent = "Coco Cola London Eye"
+            strong2.textContent = "Buckingham Palace"
+            strong3.textContent = "Keniston Palace"
+            strong4.textContent = "Tower of London"
+            strong5.textContent = "London"
+            britishMuseumCourtInfo.appendChild(strong);
+            cocaColaLondonEyeInfo.appendChild(strong1);
+            buckinghamPalaceInfo.appendChild(strong2);
+            kensingtonPalaceInfo.appendChild(strong3);
+            TowerOfLondonInfo.appendChild(strong4);
+            LondonInfo.appendChild(strong5);
+            britishMuseumCourtInfo.appendChild(document.createElement('br'));
+            cocaColaLondonEyeInfo.appendChild(document.createElement('br'));
+            buckinghamPalaceInfo.appendChild(document.createElement('br'));
+            kensingtonPalaceInfo.appendChild(document.createElement('br'));
+            TowerOfLondonInfo.appendChild(document.createElement('br'));
+            LondonInfo.appendChild(document.createElement('br'));
+            var text = document.createElement('text');
+            var text1 = document.createElement('text');
+            var text2 = document.createElement('text');
+            var text3 = document.createElement('text');
+            var text4 = document.createElement('text');
+            var text5 = document.createElement('text');
+            text.textContent = 'Great Russell St, Bloomsbury, London WC1B 3DG, United Kingdom'
+            text1.textContent = 'Lambeth, London SE1 7PB, United Kingdom'
+            text2.textContent = 'Westminster, London SW1A 1AA, United Kingdom'
+            text3.textContent = 'Kensington Gardens, Kensington, London W8 4PX, United Kingdom'
+            text4.textContent = 'St Katharines & Wapping, London EC3N 4AB, United Kingdom'
+            text5.textContent = 'london'
+            britishMuseumCourtInfo.appendChild(text);
+            cocaColaLondonEyeInfo.appendChild(text1);
+            buckinghamPalaceInfo.appendChild(text2);
+            kensingtonPalaceInfo.appendChild(text3);
+            TowerOfLondonInfo.appendChild(text4);
+            LondonInfo.appendChild(text5);
+            britishMuseumCourtInfo.appendChild(document.createElement('br'));
+            cocaColaLondonEyeInfo.appendChild(document.createElement('br'));
+            buckinghamPalaceInfo.appendChild(document.createElement('br'));
+            kensingtonPalaceInfo.appendChild(document.createElement('br'));
+            TowerOfLondonInfo.appendChild(document.createElement('br'));
+            LondonInfo.appendChild(document.createElement('br'));
+            var btn = document.createElement("BUTTON");
+            var btn1 = document.createElement("BUTTON");
+            var btn2 = document.createElement("BUTTON");
+            var btn3 = document.createElement("BUTTON");
+            var btn4 = document.createElement("BUTTON");
+            var btn5 = document.createElement("BUTTON");
+            btn.innerHTML = "CLICK ME";
+            btn1.innerHTML = "CLICK ME";
+            btn2.innerHTML = "CLICK ME";
+            btn3.innerHTML = "CLICK ME";
+            btn4.innerHTML = "CLICK ME";
+            btn5.innerHTML = "CLICK ME";
+            britishMuseumCourtInfo.appendChild(btn);
+            cocaColaLondonEyeInfo.appendChild(btn1);
+            buckinghamPalaceInfo.appendChild(btn2);
+            kensingtonPalaceInfo.appendChild(btn3);
+            TowerOfLondonInfo.appendChild(btn4);
+            LondonInfo.appendChild(btn5);
+            btn.onclick = function() {
+                alert('here be dragons');
+                return false;
+            };
+            btn.onclick = function() {
+                window.location = "./GamePageAR.html?locationname=britishMuseumCourt"
+                return false;
+            };
+            btn1.onclick = function() {
+                window.location = "./GamePageAR.html?locationname=cocaColaLondonEye"
+                return false;
+            };
+            btn2.onclick = function() {
+                window.location = "./GamePageAR.html?locationname=buckinghamPalace"
+                return false;
+            };
+            btn3.onclick = function() {
+                window.location = "./GamePageAR.html?locationname=kensingtonPalace"
+                return false;
+            };
+            btn4.onclick = function() {
+                window.location = "./GamePageAR.html?locationname=TowerOfLondon"
+                return false;
+            };
+            btn5.onclick = function() {
+                window.location = "./GamePageAR.html?locationname=MadameTussauds"
+                return false;
+            };
+            // The map, centered at London
+            var map = new google.maps.Map(
+                document.getElementById('map'), {
+                    zoom: 15,
+                    center: london
+                });
+            // The marker, positioned at coordinates
+            var londonmarker = new google.maps.Marker({
+                position: london,
+                map: map
+            });
+            var britishMuseumCourtMarker = new google.maps.Marker({
+                position: britishMuseumCourt,
+                map: map
+            });
+            var buckinghamPalacemarker = new google.maps.Marker({
+                position: buckinghamPalace,
+                map: map
+            });
+            var cocaColaLondonEyemarker = new google.maps.Marker({
+                position: cocaColaLondonEye,
+                map: map
+            });
+            var kensingtonPalacemarker5 = new google.maps.Marker({
+                position: kensingtonPalace,
+                map: map
+            });
+            var TowerOfLondonmarker6 = new google.maps.Marker({
+                position: TowerOfLondon,
+                map: map
+            });
+            // adding pop-ups for markers
+            londonmarker.addListener('click', function() {
+                infoWindow.setContent(LondonInfo);
+                infoWindow.open(map, londonmarker);
+            });
+            britishMuseumCourtMarker.addListener('click', function() {
+                infoWindow.setContent(britishMuseumCourtInfo);
+                infoWindow.open(map, britishMuseumCourtMarker);
+            });
+            buckinghamPalacemarker.addListener('click', function() {
+                infoWindow1.setContent(buckinghamPalaceInfo);
+                infoWindow1.open(map, buckinghamPalacemarker);
+            });
+            cocaColaLondonEyemarker.addListener('click', function() {
+                infoWindow1.setContent(cocaColaLondonEyeInfo);
+                infoWindow1.open(map, cocaColaLondonEyemarker);
+            });
+            kensingtonPalacemarker5.addListener('click', function() {
+                infoWindow1.setContent(kensingtonPalaceInfo);
+                infoWindow1.open(map, kensingtonPalacemarker5);
+            });
+            TowerOfLondonmarker6.addListener('click', function() {
+                infoWindow1.setContent(TowerOfLondonInfo);
+                infoWindow1.open(map, TowerOfLondonmarker6);
+            });
+        }
+    </script>
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVIISj0N44ABEfP1SP_BREeYmSOU_5kT0 &libraries=visualization&callback=initMap">
+    </script>
+
+</body>
+
+</html>
