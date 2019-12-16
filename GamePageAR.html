@@ -25,7 +25,7 @@
         <a-link rotation=" 0 90 270 " position="0 1 2" href="HomePage.html" title="My Homepage " image="#homeThumbnail "></a-link>
         <a-text id="challenge1" position="0 1 1 " rotation=" 0 90 270 " value="Scan the QR code behind the image to get points " my-test-component></a-text>
 
-        <a-image position="0 0 0 " rotation=" 0 90 270 " src="./images/arrow.png "></a-image>
+        <a-image rel="external" position="0 0 0 " rotation=" 0 90 270 " src="./images/arrow.png"></a-image>
 
 
         <!-- <a-animation attribute="rotation " dur="3000 " to="0 360 0 " repeat="indefinite ">
@@ -33,7 +33,7 @@
 
         <!-- define a camera which will move according to the marker position -->
         <!-- <a-marker-camera type='pattern' url='./images/test1.png'></a-marker-camera> -->
-        <a-marker-camera type='pattern' url='./images/gg.patt'></a-marker-camera>
+        <a-marker-camera id="marker" type='pattern' url='./images/gg.patt'></a-marker-camera>
 
 
         <!-- <a-marker-camera type="pattern " url="./images/test1.png "></a-marker-camera> -->
@@ -52,12 +52,8 @@
     <!-- </div> -->
 
     <script>
-        AFRAME.registerComponent('my-test-component', {
-            tick: function() {
-                var el = this.el;
-                el.setAttribute("value ", "other text ");
-            }
-        });
+        $('marker').attr('rel', 'external');
+
 
         function onLoad() {
             var location = getUrlParams();
