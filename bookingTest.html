@@ -25,6 +25,8 @@
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
+    <script src = "https://checkout.stripe.com/checkout.js" ></script>
+
 
 
     <meta name="theme-color" content="#fafafa">
@@ -206,34 +208,37 @@
 
             </form>
 
-            <!-- <div data-role="footer">
-                <div class="footer1">
-                    <div class="left">
-                        <div id="div1">
-                            <img src="images/placeholder.png" height="25" width="25">
-                            <p>Galle Road Dehiwala</p>
-                            <img src="images/telephone.png" height="25" width="25">
-                            <p>0771234567</p>
-                            <img src="images/envelope.png" height="25" width="25">
-                            <p>Treasuretrain@gmail.com</p>
-                        </div>
-                    </div>
 
-                    <div class="right">
-                        <div id="div2">
-                            <p>About Us</p>
-                            <p>We are a startup that aims to provide you with a smooth and fun process to book tickets and visit places in London. Book tickets, Play Game, Review Places all in one platform. Connect with us on any platform. Visit us, Call
-                                us or email us </p>
-                        </div>
-                        <div class="div3">
-                            <p><img src="images/fb.png" height="30" width="30"></p>
-                            <p><img src="images/twitter.png" height="30" width="30"></p>
-                            <p><img src="images/linkedin.png" height="30" width="30"></p>
-                            <p><img src="images/github.png" height="30" width="30"></p>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+<!--            SCRIPT FOR STRIPE INTEGRATION -->
+
+            <script type="text/javascript">
+                jQuery(function($){
+                    var $form = $('#bookingForm');
+                    var handler = StripeCheckout.configure({
+                        key:'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
+                        token : function(token){
+                            if(token.id){
+                                $("#thankyouPayment").html("Thank you")
+                            }
+                        }
+                    })
+
+                    $('#customButton').on('click', function(e) {
+                        handler.open({
+                            name : 'Treasure Train',
+                            currency: 'USD',
+                            description: 'ticket from '+ $('#from').val() +' to '+$('#to').val() ,
+                            amount: $('#price-per-ticket').val() * $('#numOfTickets').val()
+                        });
+
+                        $(window).on('popstate', function(){
+                            handler.close();
+                        });
+                    });
+                });
+            </script>
+
+
 
 <!--            SCRIPT FOR FINDING TICKET PRICE-->
             <script>
@@ -272,48 +277,6 @@
 
         </div>
 
-
-<!--        <script src="js/vendor/modernizr-3.7.1.min.js"></script>-->
-<!--        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>-->
-<!--        <script>-->
-<!--            window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')-->
-<!--        </script>-->
-<!--&lt;!&ndash;        <script src="js/plugins.js"></script>&ndash;&gt;-->
-<!--&lt;!&ndash;        <script src="js/main.js"></script>&ndash;&gt;-->
-
-<!--        &lt;!&ndash; Google Analytics: change UA-XXXXX-Y to be your site's ID. &ndash;&gt;-->
-
-<!--        <script src="https://www.google-analytics.com/analytics.js" async></script>-->
-
-<!--        <script src="https://checkout.strip-->
-<!--        e.com/checkout.js"></script>-->
-
-<!--        <script type="text/javascript">-->
-<!--            jQuery(function($) {-->
-<!--                var $form = $('#bookingForm');-->
-<!--                var handler = StripeCheckout.configure({-->
-<!--                    key: 'pk_test_cp21BcECf4kMMUbSlRlZlsMo',-->
-<!--                    token: function(token) {-->
-<!--                        if (token.id) {-->
-<!--                            $("#thankyouPayment").html("Thank you")-->
-<!--                        }-->
-<!--                    }-->
-<!--                })-->
-
-<!--                $('#customButton').on('click', function(e) {-->
-<!--                    handler.open({-->
-<!--                        name: 'Treasure Train',-->
-<!--                        currency: 'USD',-->
-<!--                        description: $('#item_name').val(),-->
-<!--                        amount: $('#item_value').val() * 100-->
-<!--                    });-->
-
-<!--                    $(window).on('popstate', function() {-->
-<!--                        handler.close();-->
-<!--                    });-->
-<!--                });-->
-<!--            });-->
-<!--        </script>-->
 
     </div>
 </body>
