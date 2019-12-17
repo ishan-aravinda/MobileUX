@@ -99,7 +99,7 @@
 
         };
 
-        //create a 'listener' which waits for changes to the values inside the firebaseOrdersCollection 
+        //create a 'listener' which waits for changes to the values inside the firebaseOrdersCollection
         firebaseOrdersCollection.on('value', function(orders) {
 
             //create an empty string that will hold our new HTML
@@ -127,7 +127,7 @@
             //actaull put the html on the page inside the element with the id PreviousOrders
             $('#previousOrders').html(allOrdersHtml);
 
-            //note: an alternative approach would be to create a hidden html element for one order on the page, duplicate it in the forEach loop, unhide it, and replace the information, and add it back. 
+            //note: an alternative approach would be to create a hidden html element for one order on the page, duplicate it in the forEach loop, unhide it, and replace the information, and add it back.
         });
     </script>
 
