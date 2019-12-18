@@ -117,56 +117,76 @@
                     <div class="ui-block-a element">
                         <p style="float:left;">From</p><br />
                         <div class="ui-field-contain">
-                            <select name="select-custom-20" id="select-custom-20" data-native-menu="false">
-                      <option value="" disabled selected>Where are you travelling from?</option>
-                      <option value="colombo">Colmbo</option>
-                      <option value="saab">Saab</option>
-                      <option value="fiat">Fiat</option>
-                      <option value="audi">Audi</option>
-                  </select>
+                            <select id="from" name="from" required>
+                                <option value="London">London</option>
+                                <option value="Birmingham">Birmingham</option>
+                                <option value="Bristol">Bristol</option>
+                                <option value="Canterbury">Canterbury</option>
+                            </select>
                         </div>
                     </div>
                     <div class="ui-block-a element">
                         <p style="float:left;">To</p><br />
                         <div class="ui-field-contain">
-                            <select name="select-custom-20" id="select-custom-20" data-native-menu="false">
-                        <option value="" disabled selected>Where are you travelling to?</option>
-                        <option value="colombo">Colmbo</option>
-                        <option value="saab">Saab</option>
-                        <option value="fiat">Fiat</option>
-                        <option value="audi">Audi</option>
-                    </select>
+                            <select id="to" name="to" required>
+                                <option value="London">London</option>
+                                <option value="Birmingham">Birmingham</option>
+                                <option value="Bristol">Bristol</option>
+                                <option value="Canterbury">Canterbury</option>
+                            </select>
                         </div>
                     </div>
                     <div class="ui-block-a element">
                         <p style="float:left;">Date</p><br />
                         <div class="ui-bar" style="height:60px">
-                            <input align="center" value="Date of Trip" type="date" name="date" style="height:60px;">
+                            <input align="center" value="Date of Trip" type="date" name="date"  id="date" style="height:60px;" required>
                         </div>
                     </div>
 
                     <div class="ui-block-a element" style="margin-top:20px">
                         <p style="float:left;">Class</p><br>
                         <div class="ui-field-contain">
-                            <select name="select-custom-20" id="select-custom-20" data-native-menu="false">
-                        <option value="" disabled selected>Class</option>                                                
-                        <option value="firstclass">First Class</option>
-                        <option value="secondclass">Second Class</option>
-                        <option value="thirdclass">Third Class</option>
-                    </select>
+                            <select id="classOfTicket" onchange="loadTicketClassPrice()" required>
+                                <option value="" disabled selected>Class</option>                                                
+                                <option value="100">First Class</option>
+                                <option value="10">Second Class</option>
+                                <option selected value="1">Third Class</option>
+                            </select>
                         </div>
                     </div>
                     <div class="ui-block-a element">
                         <p style="float:left;">Number of Tickets</p><br />
                         <div class="ui-field-contain">
-                            <select name="select-custom-20" id="select-custom-20" data-native-menu="false">
-                        <option value="" disabled selected>Number of Tickets</option>                        
-                        <option value="one">01</option>
-                        <option value="two">02</option>
-                        <option value="three">03</option>
-                    </select>
+                            <select id="numOfTickets" onchange="loadTotalPrice()" required>
+                                <option value="" disabled selected>Number of Tickets</option>                        
+                                <option value="1">01</option>
+                                <option value="2">02</option>
+                                <option value="3">03</option>
+                                <option value="4">04</option>
+                                <option value="5">05</option>
+                                <option value="6">06</option>
+                                <option value="7">07</option>
+                                <option value="8">08</option>
+                                <option value="9">09</option>
+                                <option value="10">10</option>
+                            </select>
                         </div>
                     </div>
+
+                    <div class="ui-block-a element">
+                        <p style="float:left;">Price Per Ticket</p><br />
+                        <div class="ui-bar" style="height:60px">
+                            <input type="text" name="price-per-ticket" id="price-per-ticket" value="1.0 USD" readonly>
+                        </div>
+                    </div>
+
+                    <div class="ui-block-a element">
+                        <p style="float:left;">Total Price</p><br />
+                        <div class="ui-bar" style="height:60px">
+                            <input type="text" name="price" id="price" value="1.0 USD" readonly>
+                        </div>
+                    </div>
+
                 </div>
 
 
