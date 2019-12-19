@@ -25,6 +25,10 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+    <script src = "https://checkout.stripe.com/checkout.js" ></script>
+
+
 </head>
 <style>
     body {
@@ -159,7 +163,7 @@
                         <div class="ui-field-contain">
                             <select id="numOfTickets" onchange="loadTotalPrice()" required>
                                 <option value="" disabled selected>Number of Tickets</option>                        
-                                <option value="1">01</option>
+                                <option value="1" selected>01</option>
                                 <option value="2">02</option>
                                 <option value="3">03</option>
                                 <option value="4">04</option>
@@ -193,14 +197,32 @@
                 <br><br>
 
                 <div align="center" style="margin-top:15px;">
-                    <button data-role="none" class="btn btn-lg btn-primary btn-block" type="button"> Book Now </button>
+<!--                    <button href="popupLogin" data-role="none" data-rel="popup" data-position-to="window" onclick="loadPopup()" class="btn btn-lg btn-primary btn-block" type="button" data-transition="pop" data-position-to="window"> Book Now </button>-->
+                    <a href="#popupLogin" onclick="loadPopup()" data-rel="popup" data-position-to="window" class="btn btn-lg btn-primary btn-block" data-transition="pop" data-position-to="window">Book Now</a>
+
+                    <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
+
+                        <form>
+
+                            <div style="padding:10px 20px;background-color: black;">
+
+                                <h3>Confirm your Booking</h3>
+
+                                <p id="confirmation-msg" > test </p>
+
+                                <button id="customButton" type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Proceed to Payment</button>
+                            </div>
+                        </form>
+                    </div>
+
                 </div> <br>
                 <br>
                 <div align="centre" class="ui-block-b">
-                    <!--      <center>-->
+                          <center>
                     <!--        <a data-position-to="window" data-rel="popup" data-role="button" data-theme="a" href="#"-->
                     <!--                               id="submit_booking">Book Now</a>-->
                     <!--      </center>-->
+
                 </div>
 
 
@@ -296,6 +318,73 @@
             })
         </script>
         <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+        <!--            SCRIPT FOR STRIPE INTEGRATION -->
+
+        <script type="text/javascript">
+            jQuery(function($){
+                var $form = $('#bookingForm');
+                var handler = StripeCheckout.configure({
+                    key:'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
+                    token : function(token){
+                        if(token.id){
+                            $("#thankyouPayment").html("Thank you")
+                        }
+                    }
+                })
+
+                $('#customButton').on('click', function(e) {
+                    handler.open({
+                        name : 'Treasure Train',
+                        currency: 'USD',
+                        description: 'ticket from '+ $('#from').val() +' to '+$('#to').val() ,
+                        amount: $('#price-per-ticket').val() * $('#numOfTickets').val()
+                    });
+
+                    $(window).on('popstate', function(){
+                        handler.close();
+                    });
+                });
+            });
+        </script>
+
+
+
+        <!--            SCRIPT FOR FINDING TICKET PRICE-->
+        <script>
+            function loadTicketClassPrice(){
+                // alert("num1")
+                // alert(document.getElementById('classOfTicket').value)
+                var ticketClass = document.getElementById('classOfTicket').value;
+                // alert(ticketClass)
+                document.getElementById("price-per-ticket").value = ticketClass.toString()+".0 USD";
+                loadTotalPrice();
+                // document.getElementById("price-per-ticket").value = "100";
+
+            }
+            function loadTotalPrice() {
+                // alert("k");
+                // alert(document.getElementById('numOfTickets').value;)
+                var ticketNum = document.getElementById('numOfTickets').value;
+                var ticketClass = document.getElementById('classOfTicket').value;
+                document.getElementById("price").value = ticketNum*ticketClass+".0 USD";
+
+            }
+
+
+
+            function loadPopup() {
+                var FromLocation = document.getElementById('from').value;
+                var ToLocation = document.getElementById('to').value;
+                var date = document.getElementById('date').value
+
+                var popUpText = "Confirm your booking from " + FromLocation + " to " + ToLocation + " on " + date;
+
+                document.getElementById("confirmation-msg").innerHTML = popUpText;
+
+            }
+        </script>
 
 
 
