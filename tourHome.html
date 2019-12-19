@@ -23,16 +23,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Home</title>
     <style>
-        #loading {
-            background: url('images/spinner.gif') no-repeat center center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
+        .loader {
+            position: fixed;
+            left: 0px;
+            top: 0px;
             width: 100%;
-            z-index: 9999999;
+            height: 100%;
+            z-index: 9999;
+            background-color: #ffffffcf;
         }
-
+        .loader img{
+            position: relative;
+            left: 40%;
+            top: 40%;
+        }
         [data-role=footer] {
             bottom: 0;
             width: 100%;
@@ -165,8 +169,7 @@
 
 
 <div data-role="page">
-    <div id="loading"></div>
-
+    <div class="loader" ><img src="images/spinner.gif"></div>
 
     <div data-role="header" >
 
@@ -749,15 +752,13 @@
 
 
     function hideLoader() {
-
         function FetchData() {
-            $('#loading').hide();
-        }
+            $('.loader').fadeOut();
 
+        }
         setTimeout(FetchData,3000);
 
     }
-
     $(window).ready(hideLoader);
 
     // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
