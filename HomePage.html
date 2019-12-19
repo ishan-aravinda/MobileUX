@@ -1,212 +1,117 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html class="no-js" lang="">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>About Us</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Include JQuery Mobile -->
-    <link rel="stylesheet" type="text/css" href="style.css">
-
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!--        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-    <!--        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
-    <!--    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
+    <link rel="stylesheet" href="css/signin.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <title>Home</title>
-    <style>
-        [data-role=footer] {
-            bottom: 0;
-            width: 100%;
-        }
-        
-        body {
-            background-image: url("./images/bg.png ");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-        }
-        
-        .ui-page {
-            background: transparent;
-        }
-        
-        .ui-content {
-            background: transparent;
-        }
-        
-        .body-text {
-            color: white;
-            font-size: 25px;
-        }
-        
-        .button {
-            background-color: #4CAF50;
-            /* Green */
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-        }
-        
-        .btn-block {
-            border-radius: 35px;
-            width: 25%;
-            height: 55px;
-            text-align: center;
-            color: white;
-            background-color: #FFA630;
-        }
-        
-        .card {
-            /* Add shadows to create the "card" effect */
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
-            margin: 25px;
-            width: 30%;
-            align-items: center;
-        }
-        /* On mouse-over, add a deeper shadow */
-        
-        .card:hover {
-            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-        }
-        /* Add some padding inside the card container */
-        
-        .container {
-            padding: 2px 16px;
-        }
-        
-        .poi_img {
-            width: 75%;
-        }
-        /* Starts */
-        
-        .checked {
-            color: orange;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        
-        .rate {
-            float: left;
-            height: 46px;
-            padding: 0 10px;
-        }
-        
-        .rate:not(:checked)>input {
-            position: absolute;
-            top: -9999px;
-        }
-        
-        .rate:not(:checked)>label {
-            float: right;
-            width: 1em;
-            overflow: hidden;
-            white-space: nowrap;
-            cursor: pointer;
-            font-size: 30px;
-            color: #ccc;
-        }
-        
-        .rate:not(:checked)>label:before {
-            content: '★ ';
-        }
-        
-        .rate>input:checked~label {
-            color: #ffc700;
-        }
-        
-        .rate:not(:checked)>label:hover,
-        .rate:not(:checked)>label:hover~label {
-            color: #deb217;
-        }
-        
-        .rate>input:checked+label:hover,
-        .rate>input:checked+label:hover~label,
-        .rate>input:checked~label:hover,
-        .rate>input:checked~label:hover~label,
-        .rate>label:hover~input:checked~label {
-            color: #c59b08;
-        }
-        /* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
-    </style>
-
-
 </head>
-
+<style>
+    body {
+        background-image: url("./images/bg.png ");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+        
+    .ui-btn {
+        border: 0.25px solid white !important;
+        background-color: transparent !important;
+        color: white !important;
+        text-shadow: none !important;
+    }
+    
+    .ui-page {
+        background: transparent;
+    }
+    
+    .ui-content {
+        background: transparent;
+    }
+    
+    .ui-field-contain,
+    .ui-mobile fieldset.ui-field-contain {
+        padding: 0px;
+    }
+    
+    body {
+        background-image: url("./images/bg.png ");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
 
 <body>
 
-    <div data-role="page">
-
+    <div class="body" data-role="page">
         <div align="center" data-role="header">
             <div data-role="header">
 
                 <div data-demo-html="true">
-                    <a href="./HomePage.html"><img src="./images/logo.png" rel="external" alt="Treasure Train Logo" width="200" height="200" style="float:left;"></a>
-                    <div data-role="navbar" data-grid="c">
+                    <a href="./HomePage.html"><img src="./images/logo.png" alt="Treasure Train Logo" width="200" height="200" style="float:left;"></a>
 
+                    <div data-role="navbar" data-grid="c">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="./HomePage.html" rel="external">Home</a>
+                                <a class="nav-link" href="./HomePage.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./booking.html" rel="external">Book Tickets</a>
+                                <a class="nav-link" href="./booking.html">Book Tickets</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./aboutus.html" rel="external">About Us</a>
+                                <a class="nav-link" href="./aboutus.html">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./login.html" rel="external">Play</a>
+                                <a class="nav-link" href="./login.html">Play</a>
                             </li>
                         </ul>
+
                         <!-- <ul>
-                    <li><a href="./HomePage.html" class="ui-btn-active">Home</a></li>
-                    <li><a href="./booking.html">Book Tickets</a></li>
-                    <li><a href="/aboutus.html">About Us</a></li>
-                    <li><a href="./login.html">Play Game</a></li>
-                  </ul> -->
+          <li><a href="./HomePage.html">Home</a></li>
+          <li><a href="./booking.html" class="ui-btn-active">Book Tickets</a></li>
+          <li><a href="./aboutus.html">About Us</a></li>
+          <li><a href="./login.html">Play Game</a></li>
+        </ul> -->
                     </div>
-                    <!-- /navbar -->
                 </div>
                 <!--/demo-html -->
             </div>
         </div>
 
-
-
-        <div data-role="content">
-
+        <div data-role="content" class="form">
             <video width="100%" height="185" style="margin-top:15px;" controls>
-                <source src="intro-movie.mp4" type="video/mp4">
+                <source width="100%" src="intro-movie.mp4" type="video/mp4">
             </video>
             <div align="center" style="margin-top:15px;">
-                <button onclick="goToPlay()" data-role="none" class="btn btn-lg btn-primary btn-block" type="button">
-                    Play Now </button>
+                <button data-role="none" class="btn btn-lg btn-primary btn-block" type="button"> Play Now </button>
             </div>
-            <div align="center" style="display: inline-block;">
+            <br>    
+            <div style="display: inline-block;">
 
-                <div align="center" style="display:inline-flex; ">
+                <div class="card-columns" style="display:flex;">
 
-                    <div class="card">
+                    <div class="card" >
                         <a href="#" onclick="goToLocation('Coco-Cola london-eye')">
                             <img class="card-img-top" src="./images/Locations/Coco-Cola london-eye.jpg" class="poi_img" style="width:100%">
                             <div class="card-body">
@@ -234,7 +139,7 @@
                     </div>
                 </div>
 
-                <div align="center" style="display:inline-flex">
+                <div align="center" style="display:flex">
 
                     <div class="card">
                         <a href="#" onclick="goToLocation('Kensington Palace')">
@@ -256,9 +161,9 @@
 
                     <div class="card">
                         <a href="#" onclick="goToLocation('Madame Tussauds')">
-                            <img src="./images/Locations/Madame Tussauds.jpeg" alt="location" class="poi_img">
-                            <div class="container">
-                                <h4><b>Madame Tussauds</b></h4>
+                            <img class="card-img-top" src="./images/Locations/Madame Tussauds.jpeg" alt="location" class="poi_img" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">Madame Tussauds</h4>
                             </div>
                         </a>
                     </div>
@@ -266,7 +171,10 @@
                 </div>
 
             </div>
+            <br><br>                
+
         </div>
+
         <div class="footer1">
             <br>
             <p>About Us</p>
@@ -302,29 +210,68 @@
             </div>
         </div>
 
-        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
-        <script src="/js/firebase_init.js"></script>
-
-
+        <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all" data-dismissible="false">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Conferma</h1>
+            </div>
+            <div class="content-secondary">
+                <div data-role="popup" id="popupDiv" class="ui-content" style="max-width: 340px;">
+                    <span id="dialog_title_span">Thank You</span>
+                    <p>
+                        Booking details are correct ?
+                    </p>
+                    <a id="confirmButton" data-role="button" data-theme="b" data-icon="check" data-inline="true" href="Default.aspx" data-mini="true">DONE</a>
+                </div>
+            </div>
+            <div data-role="popup" id="popupBasic">
+                <p>This is a completely basic popup, no options set.</p>
+            </div>
+        </div>
+        <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script>
-            function goToLocation(locationName) {
-                window.location = './location.html?locationname=' + locationName;
-
-            }
-
-            function goToPlay() {
-                var user = firebase.auth().currentUser;
-
-                if (user) {
-                    console.log(user);
-                    window.location = './GamePage1.html';
-                } else {
-                    window.location = './login.html';
-                }
-            }
+            window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')
         </script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
 
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga = function() {
+                ga.q.push(arguments)
+            };
+            ga.q = [];
+            ga.l = +new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('set', 'transport', 'beacon');
+            ga('send', 'pageview')
+
+
+            function onSuccess() {
+                setTimeout(function() {
+                    $('#popupDiv').popup("open");
+                }, 100);
+            }
+
+            function onFailure(error) {
+                alert(error);
+            }
+            $(document).on('click', 'submit', function() {
+                $('#popupDiv').popup();
+                $('#popupDiv').popup('open');
+            })
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+
+    </div>
+    <script>
+        function goToLocation(locationName) {
+            window.location = './location.html?locationname=' + locationName;
+
+        }
+    </script>
 </body>
-
 
 </html>

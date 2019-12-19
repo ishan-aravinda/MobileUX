@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html class="no-js" lang="">
 
 <head>
-
     <meta charset="utf-8">
-    <title>Location</title>
+    <title>About Us</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,75 +25,44 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-    <style>
-        body {
-            background-image: url("./images/bg.png ");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-        }
+</head>
+<style>
+    body {
+        background-image: url("./images/bg.png ");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    }
         
-        .ui-page {
-            background: transparent;
-        }
-        
-        .ui-content {
-            background: transparent;
-        }
-        
-        [data-role=footer] {
-            bottom: 0;
-            position: absolute !important;
-            top: auto !important;
-            width: 100%;
-        }
-        
-        .body-text {
-            color: white;
-            font-size: 16px;
-        }
-        
-        .h2-style {
-            color: #fff;
-            font-size: 24px;
-        }
-        
-        .a {
-            color: yellow;
-        }
-        
-        .ui-btn {
+    .ui-btn {
         border: 0.25px solid white !important;
         background-color: transparent !important;
         color: white !important;
         text-shadow: none !important;
-        }
-        
-        .btn-block {
-            border-radius: 35px;
-            width: 70%;
-            height: 60%;
-            text-align: center;
-            color: white;
-            background-color: #FFA630;
-        }
-        
-        .review-text {
-            height: 80px !important;
-            width: 80%;
-            margin: auto;
-        }
-        
-        #rating span.active {
-            color: orange;
-        }
-    </style>
-</head>
+    }
+    
+    .ui-page {
+        background: transparent;
+    }
+    
+    .ui-content {
+        background: transparent;
+    }
+    
+    .ui-field-contain,
+    .ui-mobile fieldset.ui-field-contain {
+        padding: 0px;
+    }
+    
+    body {
+        background-image: url("./images/bg.png ");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
 
-<body onload="loadData()">
-
+<body>
 
     <div class="body" data-role="page">
         <div align="center" data-role="header">
@@ -118,16 +86,24 @@
                                 <a class="nav-link" href="./login.html">Play</a>
                             </li>
                         </ul>
+
+                        <!-- <ul>
+          <li><a href="./HomePage.html">Home</a></li>
+          <li><a href="./booking.html" class="ui-btn-active">Book Tickets</a></li>
+          <li><a href="./aboutus.html">About Us</a></li>
+          <li><a href="./login.html">Play Game</a></li>
+        </ul> -->
                     </div>
                 </div>
+                <!--/demo-html -->
             </div>
         </div>
 
-        <div data-role="content" align="center" class="form">
+        <div data-role="content" class="form">
             <br>
             <h2 id="location-name" class="h2-style"></h2>
             <br><br>
-            <img id="location_image" src="#" alt="location image" width="100%" height="80%">
+            <img id="location_image" src="#" alt="location image" width="790" height="460">
             <br><br>
             <div align="center" style="margin-top:15px;">
                 <button data-role="none" class="btn btn-lg btn-primary btn-block" type="button" onclick="addToFavourites()"> Add to Favourites </button>
@@ -190,6 +166,7 @@
             <div align="center" style="margin-top:15px;">
                 <button data-role="none" class="btn btn-lg btn-primary btn-block" type="button" onclick="submitReview()"> Submit Review </button>
             </div>
+   
 
         </div>
         <br>
@@ -228,9 +205,7 @@
             </div>
         </div>
 
-    </div>
-
-    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
     <!-- <script src="js/firebase-init.js"></script> -->
 
     <script>
@@ -340,6 +315,10 @@
     </script>
 
     <script src="js/CookieFunctions.js"></script>
+
+
+
+    </div>
 </body>
 
 </html>
