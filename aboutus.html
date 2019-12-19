@@ -1,65 +1,76 @@
-<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html class="no-js" lang="">
 
 <head>
+    <meta charset="utf-8">
+    <title>About Us</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link rel="stylesheet" href="css/style.css" />
-
+    <!-- Include JQuery Mobile -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="css/signin.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-
-    <style>
-        body {
-            background-image: url("./images/bg.png ");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-        }
-        
-        .ui-page {
-            background: transparent;
-        }
-        
-        .ui-content {
-            background: transparent;
-        }
-        
-        [data-role=footer] {
-            bottom: 0;
-            position: absolute !important;
-            top: auto !important;
-            width: 100%;
-        }
-        
-        .aboutus {
-            color: white;
-            font-size: 25px;
-        }
-    </style>
 </head>
+<style>
+    body {
+        background-image: url("./images/bg.png ");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+        
+    .ui-btn {
+        border: 0.25px solid white !important;
+        background-color: transparent !important;
+        color: white !important;
+        text-shadow: none !important;
+    }
+    
+    .ui-page {
+        background: transparent;
+    }
+    
+    .ui-content {
+        background: transparent;
+    }
+    
+    .ui-field-contain,
+    .ui-mobile fieldset.ui-field-contain {
+        padding: 0px;
+    }
+    
+    body {
+        background-image: url("./images/bg.png ");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+</style>
 
-<body onload="loadData()">
+<body>
 
-    <div data-role="page" id="location">
-
+    <div class="body" data-role="page">
         <div align="center" data-role="header">
             <div data-role="header">
 
                 <div data-demo-html="true">
                     <a href="./HomePage.html"><img src="./images/logo.png" alt="Treasure Train Logo" width="200" height="200" style="float:left;"></a>
+
                     <div data-role="navbar" data-grid="c">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item">
@@ -77,69 +88,77 @@
                         </ul>
 
                         <!-- <ul>
-                    <li><a href="./HomePage.html">Home</a></li>
-                    <li><a href="./booking.html">Book Tickets</a></li>
-                    <li><a href="/aboutus.html" class="ui-btn-active">About Us</a></li>
-                    <li><a href="./login.html">Play Game</a></li>
-                  </ul> -->
+          <li><a href="./HomePage.html">Home</a></li>
+          <li><a href="./booking.html" class="ui-btn-active">Book Tickets</a></li>
+          <li><a href="./aboutus.html">About Us</a></li>
+          <li><a href="./login.html">Play Game</a></li>
+        </ul> -->
                     </div>
-                    <!-- /navbar -->
                 </div>
                 <!--/demo-html -->
             </div>
         </div>
 
-        <div data-role="content">
-            <div class="container">
-                <h2 class="h3 mb-5 font-weight-normal h2-style">About Us</h2>
-                <div class="aboutus">
-                    <p class="aboutus">
-                        We own and operate the railway infrastructure in England on behalf of the nation. That's 20,000 miles of track, 30,000 bridges, tunnels and viaducts and the thousands of signals, level crossings and stations. We also manage rail timetabling and 10 of
-                        the largest stations in England. We work round-the-clock to provide a safe, reliable experience for the millions using Europe's fastest-growing railway each and every day. The work we do in running and improving Britain's railway
-                        is incredibly diverse, challenging and ambitious. We work with lots of different partners across the industry, so why not know a little more about who work collaboratively to deliver 4.8 million journeys a day for our customers.
+        <div data-role="content" class="form">
+            <br>
+            <h2 class="h2-style">About Us</h2>
+                <p>
+                    We own and operate the railway infrastructure in England on behalf of the nation. That's 20,000 miles of track, 30,000 bridges, tunnels and viaducts and the thousands of signals, level crossings and stations. We also manage rail timetabling and 10 of
+                    the largest stations in England. We work round-the-clock to provide a safe, reliable experience for the millions using Europe's fastest-growing railway each and every day. The work we do in running and improving Britain's railway
+                    is incredibly diverse, challenging and ambitious. We work with lots of different partners across the industry, so why not know a little more about who work collaboratively to deliver 4.8 million journeys a day for our customers.
+                </p>
+            <br>    
+            <h2 class="h2-style">Our Team</h2>
+                <p>
+                    Maintaining and operating our rail network 24/7 is an important part of what we do, but we also plan ahead and continually improve the way we work. We keep Britain moving. The railway brings together families and friends, and opens up communities to opportunities:
+                    jobs; clients and customers. It helps businesses and the national economy to grow, and it's our job to look after it.
+                </p>
+            <br>
+            <div align="center">
 
-                    </p>
-                    <hr>
+                <div class="row" style="display:flex; ">
+
+                    <div class="col-sm">
+                        <img src="images/Ishan.png" height="100" width="100">
+                        <p>Ishan - Head of Operations</p>
+                        <br>
+                        <p> Ishan is one of the Co-Founder of this start up and has been responsible for leading the team and organizing the tasks for each member of the team. </p>
+                    </div>
                 </div>
-                <br />
-                <h2 class="h3 mb-4 font-weight-normal h2-style">Our Team</h2>
-                <div class="aboutus">
-
-                    <p>
-                        Maintaining and operating our rail network 24/7 is an important part of what we do, but we also plan ahead and continually improve the way we work. We keep Britain moving. The railway brings together families and friends, and opens up communities to opportunities:
-                        jobs; clients and customers. It helps businesses and the national economy to grow, and it's our job to look after it.
-                    </p>
-                    <br />
-                    <div align="center" style="display: inline-block;">
-
-                        <div class="row" style="display:inline-flex; ">
-
-                            <div class="col-sm-6">
-                                <img src="images/Ishan.png" height="100" width="100">
-                                <p>Ishan - Head of Operations</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <img src="images/Arunodh.png" height="100" width="100">
-                                <p>Arunodh - Tech Lead</p>
-                            </div>
-                        </div>
-                        <br />
-                        <div class="row" align="center" style="display:inline-flex; ">
-                            <div class="col-sm-6">
-                                <center>
-                                    <img src="images/Kairasi.png" height="100" width="100">
-                                    <p>Kairasi - UI UX Lead</p>
-                            </div>
-                            <div class="col-sm-6">
-                                <center>
-                                    <img src="images/Prasadee.png" height="100" width="100">
-                                    <p>Prasadee - Multimedia Lead</p>
-                            </div>
-                        </div>
+                <br><br>
+                <div class="row" style="display:flex; ">
+                    <div class="col-sm">
+                        <img src="images/Arunodh.png" height="100" width="100">
+                        <p>Arunodh - Tech Lead</p>
+                        <br>
+                        <p> Arunodh is one of the Co-Founder of this start up and has been responsible for implementing different technologies and methodologies in this project. </p>
+                    </div>
+                </div>
+                <br><br>
+                <div class="row" align="center" style="display:flex; ">
+                    <div class="col-sm">
+                        <center>
+                            <img src="images/Kairasi.png" height="100" width="100">
+                            <p>Kairasi - UI UX Lead</p>
+                            <br>
+                            <p> Kairasi is one of the Co-Founder of this start up and has been responsible for the user interface and enhanced user experience in this project. </p>
+                    </div>
+                </div>
+                <br><br>
+                <div class="row" style="display:flex; ">
+                    <div class="col-sm">
+                        <center>
+                            <img src="images/Prasadee.png" height="100" width="100">
+                            <p>Prasadee - Multimedia Lead</p>
+                            <br>
+                            <p> Prasadee is one of the Co-Founder of this start up and has been responsible for our social media presence and the multimedia needs of this project. </p>
                     </div>
                 </div>
             </div>
+                <br><br>                
+
         </div>
+
         <div class="footer1">
             <br>
             <p>About Us</p>
@@ -175,6 +194,62 @@
             </div>
         </div>
 
+        <div data-role="popup" id="popupDialog" data-overlay-theme="a" data-theme="c" style="max-width:400px;" class="ui-corner-all" data-dismissible="false">
+            <div data-role="header" data-theme="a" class="ui-corner-top">
+                <h1>Conferma</h1>
+            </div>
+            <div class="content-secondary">
+                <div data-role="popup" id="popupDiv" class="ui-content" style="max-width: 340px;">
+                    <span id="dialog_title_span">Thank You</span>
+                    <p>
+                        Booking details are correct ?
+                    </p>
+                    <a id="confirmButton" data-role="button" data-theme="b" data-icon="check" data-inline="true" href="Default.aspx" data-mini="true">DONE</a>
+                </div>
+            </div>
+            <div data-role="popup" id="popupBasic">
+                <p>This is a completely basic popup, no options set.</p>
+            </div>
+        </div>
+        <script src="js/vendor/modernizr-3.7.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script>
+            window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')
+        </script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <script>
+            window.ga = function() {
+                ga.q.push(arguments)
+            };
+            ga.q = [];
+            ga.l = +new Date;
+            ga('create', 'UA-XXXXX-Y', 'auto');
+            ga('set', 'transport', 'beacon');
+            ga('send', 'pageview')
+
+
+            function onSuccess() {
+                setTimeout(function() {
+                    $('#popupDiv').popup("open");
+                }, 100);
+            }
+
+            function onFailure(error) {
+                alert(error);
+            }
+            $(document).on('click', 'submit', function() {
+                $('#popupDiv').popup();
+                $('#popupDiv').popup('open');
+            })
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async></script>
+
+
+
+    </div>
 </body>
 
 </html>

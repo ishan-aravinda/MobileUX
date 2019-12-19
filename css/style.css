@@ -125,6 +125,7 @@ label {
     vertical-align: middle;
     margin-top: 13px;
     margin-left: 13px;
+    color: white !important;
 }
 
 button {
@@ -166,7 +167,7 @@ day {
     margin-top: 15px;
     padding: 8px;
     cursor: pointer;
-    color: white;
+    color: white !important;
     text-shadow: 0px 1px 0px #13506D;
 }
 
@@ -219,7 +220,7 @@ body {
 }
 
 body * {
-        font-family: "RobotoRegular" !important;
+        font-family: "Roboto" !important;
         font-weight: normal !important;
     }
 
@@ -231,7 +232,7 @@ body * {
     background: transparent;
     text-align: center;
     text-shadow: 0pt 0px 0pt rgb(0, 0, 0);
-    font-family: "RobotoRegular" !important;
+    font-family: "Roboto" !important;
     font-weight: normal !important;
 }
 
@@ -290,14 +291,14 @@ li a:hover:not(.active) {
 
 .ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
     text-shadow: 0pt 0px 0pt rgb(0, 0, 0);
-    font-family: "RobotoRegular" !important;
+    font-family: "Roboto" !important;
     font-weight: normal !important;
 }
 
 .btn-block {
     width: 50%;
     text-align: center;
-    color: white;
+    color: white !important;
     background-color: #FFA630;
 }
 
@@ -305,7 +306,7 @@ li a:hover:not(.active) {
     background-color: #4CAF50;
     /* Green */
     border: none;
-    color: white;
+    color: white !important;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -458,6 +459,7 @@ form p {
 
 .form-bookingForm input[type="email"] {
     background-color: rgba(0, 0, 0, 0);
+    color: white !important;
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
@@ -465,6 +467,7 @@ form p {
 
 .form-bookingForm input[type="text"] {
     background-color: rgba(0, 0, 0, 0);
+    color: white !important;
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
