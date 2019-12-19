@@ -322,6 +322,7 @@ li a:hover:not(.active) {
     width: 33%;
     border-radius: 14px;
     align-items: center;
+    overflow: hidden;
 }
 
 /* On mouse-over, add a deeper shadow */
