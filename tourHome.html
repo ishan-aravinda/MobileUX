@@ -747,8 +747,15 @@
 <!--SCRIPT FOR THE LOAING OVERLAY-->
 <script type="text/javascript">
 
+
     function hideLoader() {
-        $('#loading').hide();
+
+        function FetchData() {
+            $('#loading').hide();
+        }
+
+        setTimeout(FetchData,3000);
+
     }
 
     $(window).ready(hideLoader);
