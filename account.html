@@ -16,19 +16,19 @@
             background-image: url("./images/bg.png ");
             background-repeat: no-repeat;
             background-size: cover;
-            background-position: center center; 
-            background-attachment: fixed; 
+            background-position: center center;
+            background-attachment: fixed;
         }
-
+        
         .ui-page {
             background: transparent;
         }
-
+        
         .ui-content {
             background: transparent;
         }
         /* Style the buttons that are used to open and close the accordion panel */
-
+        
         .accordion {
             background-color: #eee;
             color: #444;
@@ -40,12 +40,12 @@
             outline: none;
             transition: 0.4s;
         }
-            /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-
-            .active,
-            .accordion:hover {
-                background-color: #ccc;
-            }
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        
+        .active,
+        .accordion:hover {
+            background-color: #ccc;
+        }
         /* Style the accordion panel. Note: hidden by default */
         /* .panel {
             padding: 0 18px;
@@ -53,7 +53,7 @@
             display: none;
             overflow: hidden;
         } */
-
+        
         .panel {
             padding: 0 18px;
             background-color: white;
@@ -61,7 +61,7 @@
             overflow: hidden;
             transition: max-height 0.2s ease-out;
         }
-
+        
         .accordion:after {
             content: '\02795';
             /* Unicode character for "plus" sign (+) */
@@ -70,7 +70,7 @@
             float: right;
             margin-left: 5px;
         }
-
+        
         .active:after {
             content: "\2796";
             /* Unicode character for "minus" sign (-) */
@@ -106,9 +106,9 @@
             <button class="accordion">Profile Details</button>
             <div class="panel">
                 <p>Username</p>
-                <input type="text" name="username" placeholder="Username" readonly>
+                <input id="username" type="text" name="username" placeholder="Username" readonly>
                 <p>Email</p>
-                <input type="text" name="email" placeholder="Email" readonly>
+                <input id="email" type="text" name="email" placeholder="Email" readonly>
             </div>
 
             <button class="accordion">Change Password</button>
@@ -281,7 +281,7 @@
         var acc = document.getElementsByClassName("accordion");
         var i;
         for (i = 0; i < acc.length; i++) {
-            acc[i].addEventListener("click", function () {
+            acc[i].addEventListener("click", function() {
                 this.classList.toggle("active");
                 var panel = this.nextElementSibling;
                 if (panel.style.maxHeight) {
@@ -317,7 +317,14 @@
         function onLoad() {
             var coockie = getCookie("uid");
             var favouriteList = document.getElementById("favourites");
-            return firebase.database().ref('/users/' + coockie).once('value').then(function (snapshot) {
+            var username = document.getElementById("username");
+            var email = document.getElementById("email");
+
+            return firebase.database().ref('/users/' + coockie).once('value').then(function(snapshot) {
+
+                username.value = snapshot.val().fname + " " + snapshot.val().lname;
+                email.value = snapshot.val().email
+
                 snapshot.forEach((child) => {
                     child.forEach((child2) => {
                         var newItem = document.createElement("p");
@@ -328,6 +335,7 @@
                 });
             });
         }
+
         function sendEmail() {
             var x = document.getElementById("favourites").querySelectorAll("p");
             var emailAddress = getCookie("email");
