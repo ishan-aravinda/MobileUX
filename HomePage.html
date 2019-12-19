@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>About Us</title>
+    <title>Home Page</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -54,7 +54,14 @@
     .ui-mobile fieldset.ui-field-contain {
         padding: 0px;
     }
-    
+
+    .form-control {
+        color: white; 
+        background-color: transparent; 
+        width: 70%; 
+        margin: auto;
+    }
+
     body {
         background-image: url("./images/bg.png ");
         background-repeat: no-repeat;
@@ -64,35 +71,40 @@
 
 <body>
 
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $(".card").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+    </script>
+
     <div class="body" data-role="page">
         <div align="center" data-role="header">
             <div data-role="header">
 
                 <div data-demo-html="true">
-                    <a href="./HomePage.html"><img src="./images/logo.png" alt="Treasure Train Logo" width="200" height="200" style="float:left;"></a>
+                    <a href="./HomePage.html"><img src="./images/logo.png"  rel="external"  alt="Treasure Train Logo" width="200" height="150" style="float:left;"></a>
 
                     <div data-role="navbar" data-grid="c">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="./HomePage.html">Home</a>
+                                <a class="nav-link" href="./HomePage.html"  rel="external" >Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./booking.html">Book Tickets</a>
+                                <a class="nav-link" href="./booking.html"  rel="external" >Book Tickets</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./aboutus.html">About Us</a>
+                                <a class="nav-link" href="./aboutus.html"  rel="external" >About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./login.html">Play</a>
+                                <a class="nav-link" href="./login.html"  rel="external" >Play</a>
                             </li>
                         </ul>
 
-                        <!-- <ul>
-          <li><a href="./HomePage.html">Home</a></li>
-          <li><a href="./booking.html" class="ui-btn-active">Book Tickets</a></li>
-          <li><a href="./aboutus.html">About Us</a></li>
-          <li><a href="./login.html">Play Game</a></li>
-        </ul> -->
                     </div>
                 </div>
                 <!--/demo-html -->
@@ -106,12 +118,18 @@
             <div align="center" style="margin-top:15px;">
                 <button data-role="none" class="btn btn-lg btn-primary btn-block" type="button"> Play Now </button>
             </div>
-            <br>    
+            <br><br> 
+            <input data-role="none" type="email" id="myInput" class="form-control" placeholder="Search.." autofocus>
+            <!-- <div class="searcharea">
+               <input id="myInput" class="searching" type="text" style="height:15px;width:200px;" placeholder="Search.." > 
+            </div>  -->
+            
+            <br><br> 
             <div style="display: inline-block;">
 
-                <div class="card-columns" style="display:flex;">
+                <div class="row justify-content-md-center">
 
-                    <div class="card" >
+                    <div class="card col-sm-4 col-md-4" >
                         <a href="#" onclick="goToLocation('Coco-Cola london-eye')">
                             <img class="card-img-top" src="./images/Locations/Coco-Cola london-eye.jpg" class="poi_img" style="width:100%">
                             <div class="card-body">
@@ -120,7 +138,7 @@
                         </a>
                     </div>
 
-                    <div class="card">
+                    <div class="card col-sm-4 col-md-4">
                         <a href="#" onclick="goToLocation('British Museum Great Court')">
                             <img class="card-img-top" src="./images/Locations/British-Museum-Great-Court.jpg" alt="location" class="poi_img" style="width:100%">
                             <div class="card-body">
@@ -128,8 +146,11 @@
                             </div>
                         </a>
                     </div>
+                </div>
 
-                    <div class="card">
+                <div class="row justify-content-md-center">
+
+                    <div class="card col-sm-4 col-md-4">
                         <a href="#" onclick="goToLocation('Buckingham Palace')">
                             <img class="card-img-top" src="./images/Locations/Buckingham_Palace.jpg" alt="location" class="poi_img" style="width:100%">
                             <div class="card-body">
@@ -137,11 +158,8 @@
                             </div>
                         </a>
                     </div>
-                </div>
-
-                <div align="center" style="display:flex">
-
-                    <div class="card">
+                
+                    <div class="card col-sm-4">
                         <a href="#" onclick="goToLocation('Kensington Palace')">
                             <img class="card-img-top" src="./images/Locations/kensington-palace.jpg" alt="location" class="poi_img" style="width:100%">
                             <div class="card-body">
@@ -149,8 +167,11 @@
                             </div>
                         </a>
                     </div>
+                </div>
 
-                    <div class="card">
+                <div class="row justify-content-md-center">
+
+                    <div class="card col-sm-4">
                         <a href="#" onclick="goToLocation('Tower of London')">
                             <img class="card-img-top" src="./images/Locations/Tower-of-London.jpg" alt="location" class="poi_img" style="width:100%">
                             <div class="card-body">
@@ -159,7 +180,7 @@
                         </a>
                     </div>
 
-                    <div class="card">
+                    <div class="card col-sm-4">
                         <a href="#" onclick="goToLocation('Madame Tussauds')">
                             <img class="card-img-top" src="./images/Locations/Madame Tussauds.jpeg" alt="location" class="poi_img" style="width:100%">
                             <div class="card-body">
