@@ -5,51 +5,49 @@
     <title>QR Scanner</title>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="./js/instascan.min.js"></script>
-	
-	<style>
-	body{
-	 background: url(images/background.png) no-repeat center center fixed; 
-	-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 
-h2{
-text-align: center;
-font-size: 24px;
-color: white;
-}
-table {
-
-    padding-right: 10%;
-    padding-left: 10%;
-  color:white;
-  font-size:20px
-}
-
-table tr>td {
-  padding-bottom: 5%;
-}
-
-		.back{
-    left: 0px;
-    position: absolute;
-	margin-top:1%;
-    margin-left:1%
-    z-index: 999;
-	}
-
-	</style>
+    <style>
+        body {
+            background: url(images/background.png) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            color: white;
+        }
+        
+        table {
+            padding-right: 10%;
+            padding-left: 10%;
+            color: white;
+            font-size: 20px
+        }
+        
+        table tr>td {
+            padding-bottom: 5%;
+        }
+        
+        .back {
+            left: 0px;
+            position: absolute;
+            margin-top: 1%;
+            margin-left: 1% z-index: 999;
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="back">
-    <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30" ></a>
-</div>
+    <div class="back">
+        <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30"></a>
+    </div>
 
-    <video id="preview" style="width: 100%; height: 100%;"></video>
+    <video id="preview" style="width: 100%; height: 100%;  padding-top: 5%;"></video>
     <div id="contentText">
 
         <div data-role="content">
@@ -94,32 +92,35 @@ table tr>td {
         </div>
     </div>
 
+    <!-- Pop Up -->
 
-        <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
-        <script src="js/CookieFunctions.js"></script>
-        <!-- <script src="js/firebase-init.js"></script> -->
 
-        <script>
 
-            function goback() {
-                window.location = "./GamePageAR.html";
-            }
 
-            // Your web app's Firebase configuration
-            var firebaseConfig = {
-                apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
-                authDomain: "train-cde96.firebaseapp.com",
-                databaseURL: "https://train-cde96.firebaseio.com",
-                projectId: "train-cde96",
-                storageBucket: "train-cde96.appspot.com",
-                messagingSenderId: "45911183152",
-                appId: "1:45911183152:web:b27375f04a3b109b5442f5",
-                measurementId: "G-B29GE7SWEX"
-            };
-            // Initialize Firebase
-            firebase.initializeApp(firebaseConfig);
-            firebase.database();
-        </script>
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+    <script src="js/CookieFunctions.js"></script>
+    <!-- <script src="js/firebase-init.js"></script> -->
+
+    <script>
+        function goback() {
+            window.location = "./GamePageAR.html";
+        }
+
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
+            authDomain: "train-cde96.firebaseapp.com",
+            databaseURL: "https://train-cde96.firebaseio.com",
+            projectId: "train-cde96",
+            storageBucket: "train-cde96.appspot.com",
+            messagingSenderId: "45911183152",
+            appId: "1:45911183152:web:b27375f04a3b109b5442f5",
+            measurementId: "G-B29GE7SWEX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.database();
+    </script>
 
     <script>
         // Your web app's Firebase configuration
@@ -149,25 +150,6 @@ table tr>td {
         });
         scanner.addListener('scan', function(content) {
             alert(content);
-
-
-
-
-            if (content = "British Museum Great Court") {
-                alert("British Museum Great Court Challenge Complete");
-            } else if (content = "Buckingham Palace") {
-                alert("Buckingham Palace Challenge Complete");
-            } else if (content = "coco-cola London eye") {
-                alert("coco-cola London eye Complete");
-            } else if (content = "Kensington Palace") {
-                alert("Kensington Palace Challenge Complete");
-            } else if (content = "Madame Tussauds") {
-                alert("Madame Tussauds Challenge Complete");
-            } else if (content = "Tower of London") {
-                alert(" Tower of London Challenge Complete");
-            }
-
-            $("#contentText").html(content);
 
             window.open(content, '_blank');
 
@@ -203,6 +185,8 @@ table tr>td {
             window.history.back();
         }
     </script>
+
+
 </body>
 
 </html>
