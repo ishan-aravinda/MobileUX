@@ -548,6 +548,17 @@ form p {
     h4 {
         font-size: 16px;
     }
+    .div.main{
+    height: auto !important;
+        width: auto !important;
+    }
+}
+
+@media (min-width: 768px){
+.container {
+    max-width: 823px !important;
+    height: 100% !important;
+}
 }
 
 @media (min-width: 601px) and (max-width: 768px) {}

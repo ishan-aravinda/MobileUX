@@ -1,91 +1,166 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html class="no-js" lang="">
 
 <head>
-
+    <meta charset="utf-8">
     <title>Sign up with email</title>
-
-
-
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="robots" content="noindex, nofollow">
-    <!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <!-- Include JQuery Mobile -->
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-    <!-- Include CSS File Here -->
     <link rel="stylesheet" href="css/signin.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-    <style>
-        body {
-            background-image: url("./images/bg.png ");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            background-attachment: fixed;
-        }
-        
-        .ui-page {
-            background: transparent;
-        }
-        
-        .ui-content {
-            background: transparent;
-        }
-        
-        .back {
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+
+</head>
+<style>
+    body {
+        background-image: url("./images/bg.png ");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+    
+    select {
+        float: left !important;
+    }
+    
+    .ui-select,
+    .ui-btn {
+        border: 0.25px solid white !important;
+        background-color: transparent !important;
+        color: white !important;
+        text-shadow: none !important;
+    }
+
+    .btn-block {
+        background-color: #0076ff !important;
+    }
+    
+    input[type=submit] {
+        background-color: #ffa630;
+        color: black;
+    }
+    
+    .ui-page {
+        background: transparent;
+    }
+    
+    .ui-content {
+        background: transparent;
+    }
+    
+    .ui-field-contain,
+    .ui-mobile fieldset.ui-field-contain {
+        padding: 0px;
+    }
+    
+    .ui-page-theme-b .ui-btn,
+    html .ui-bar-b .ui-btn,
+    html .ui-body-b .ui-btn,
+    html body .ui-group-theme-b .ui-btn,
+    html head+body .ui-btn.ui-btn-b,
+    .ui-page-theme-b .ui-btn:visited,
+    html .ui-bar-b .ui-btn:visited,
+    html .ui-body-b .ui-btn:visited,
+    html body .ui-group-theme-b .ui-btn:visited,
+    html head+body .ui-btn.ui-btn-b:visited {
+        border: 1px solid white !important;
+    }
+    
+    body {
+        background-image: url("./images/bg.png ");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .form-control {
+        border: 1px solid white !important;
+        color: white;
+        background-color: transparent !important;
+        width: 100%;
+        margin: auto;
+    }
+
+    p {
+        font-size: 16px;
+    }
+    
+    .back {
             left: 0px;
             position: absolute;
             margin-top: 1%;
             margin-left: 1%
-        }
-    </style>
+    }
 
-</head>
+</style>
 
-<body class="text-center">
+<body>
+
     <div data-role="page">
-	
-	<div class="back">
-    <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30" ></a>
-</div>
-	
-        <div data-role="content">
-            <div data-role="none" class="container">
-                <div data-role="none" class="main">
-                    <form data-role="none" class="form-signup" method="post" action="#">
-                        <h1 class="h3 mb-5 font-weight-normal h2-style">Sign up with email</h1>
+        <div class="back">
+            <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30" ></a>
+        </div>
 
-                        <label data-role="none" for="inputEmail" class="sr-only">Email address</label>
-                        <input data-role="none" type="text" id="email" class="form-control" placeholder="Email address" required autofocus>
+        <div data-role="content" class="form">
+            <br>
+            <h2 class="h2-style">Sign up with email</h2>
+            <br>
+            <form action="" id="bookingForm">
+                <div class="ui-grid-b ui-responsive">
+                    <div class="ui-block-a element">
+                        <p style="float:left;">Email address</p><br />
+                        <div class="ui-field-contain">
+                            <input style="color: white;" data-role="none" type="email" class="form-control" id="email" placeholder="Email address"  required autofocus>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="ui-block-a element">
+                        <p style="float:left;">First name</p><br />
+                        <div class="ui-field-contain">
+                            <input style="color: white;" data-role="none" type="email" id="fname" class="form-control form-swe" placeholder="First name" required autofocus>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="ui-block-a element">
+                        <p style="float:left;">Last name</p><br />
+                        <div class="ui-bar" style="height:60px">
+                            <input style="color: white;" data-role="none" type="email" id="lname" class="form-control form-swe" placeholder="Last name" required autofocus>
+                        </div>
+                    </div>
+                    <div class="ui-block-a element" style="margin-top:20px">
+                        <p style="float:left;">Password</p><br>
+                        <div class="ui-field-contain">
+                            <input style="color: white;" data-role="none" type="password" id="password" class="form-control form-swe" placeholder="Password" required autofocus>
+                        </div>
+                    </div>
 
-                        <label data-role="none" for="inputFirstname" class="sr-only">First name</label>
-                        <input data-role="none" type="text" name="fname" id="fname" class="form-control form-swe" placeholder="First name" required autofocus>
-
-                        <label data-role="none" for="inputLastname" class="sr-only">Last name</label>
-                        <input data-role="none" type="text" name="lname" id="lname" class="form-control form-swe" placeholder="Last name" required autofocus>
-
-                        <label data-role="none" for="inputPassword" class="sr-only">Password</label>
-                        <input data-role="none" type="password" name="password" id="password" class="form-control form-swe form-swe2" placeholder="Password" required autofocus>
-
-                        <button data-role="none" class="btn btn-lg btn-success btn-block" type="button" name="SignUp" id="SignUp" value="SignUp" onclick="register()">Sign Up</button>
-
-
-
-                    </form>
                 </div>
-            </div>
+<br>
+                <div align="center" style="margin-top:15px;">
+                    <a onclick="register()" class="btn btn-lg btn-primary btn-block">Sign Up</a>
+                </div>
+
+            </form>
+
         </div>
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -130,7 +205,7 @@
             }
 
             function goBack() {
-                window.history.back();
+                window.location = "./signup.html";
             }
         </script>
 
@@ -139,6 +214,10 @@
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
 </body>
 
 </html>
