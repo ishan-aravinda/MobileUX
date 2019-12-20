@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>QR Scanner</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="./js/instascan.min.js"></script>
+
+    <style>
+        body {
+            background: url(images/background.png) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+        
+        h2 {
+            text-align: center;
+            font-size: 24px;
+            color: white;
+        }
+        
+        table {
+            padding-right: 10%;
+            padding-left: 10%;
+            color: white;
+            font-size: 20px
+        }
+        
+        table tr>td {
+            padding-bottom: 5%;
+        }
+        
+        .back {
+            left: 0px;
+            position: absolute;
+            margin-top: 1%;
+            margin-left: 1% z-index: 999;
+        }
+
+        .leaderboard{
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="back">
+        <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30"></a>
+    </div>
+
+    <video id="preview" style="width: 100%; "></video>
+
+    <div data-role="content">
+        <div class="container">
+
+
+            <div class="leaderboard">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th width="100%">Name</th>
+                        <th>Points</th>
+                    </tr>
+                    <tr>
+                        <td><img src="./images/1st.jpg" width="30" height="30"></td>
+                        <td>Smith</td>
+                        <td>50000</td>
+                    </tr>
+
+                    <tr>
+                        <td><img src="./images/2nd.jpg" width="30" height="30"></td>
+                        <td>Jackson</td>
+                        <td>40000</td>
+                    </tr>
+                    <tr>
+                        <td><img src="./images/3rd.jpg" width="30" height="30"></td>
+                        <td>Eve</td>
+                        <td>30000</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Ann</td>
+                        <td>20000</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Hilary</td>
+                        <td>10000</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Pop Up -->
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+    <script src="js/CookieFunctions.js"></script>
+    <!-- <script src="js/firebase-init.js"></script> -->
+
+    <script>
+        function goback() {
+            window.location = "./GamePageAR.html";
+        }
+
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
+            authDomain: "train-cde96.firebaseapp.com",
+            databaseURL: "https://train-cde96.firebaseio.com",
+            projectId: "train-cde96",
+            storageBucket: "train-cde96.appspot.com",
+            messagingSenderId: "45911183152",
+            appId: "1:45911183152:web:b27375f04a3b109b5442f5",
+            measurementId: "G-B29GE7SWEX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.database();
+    </script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
+            authDomain: "train-cde96.firebaseapp.com",
+            databaseURL: "https://train-cde96.firebaseio.com",
+            projectId: "train-cde96",
+            storageBucket: "train-cde96.appspot.com",
+            messagingSenderId: "45911183152",
+            appId: "1:45911183152:web:b27375f04a3b109b5442f5",
+            measurementId: "G-B29GE7SWEX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.database();
+    </script>
+
+
+
+    <script type="text/javascript">
+        var uid = getCookie("uid");
+        var email = getCookie("email");
+
+        var scanner = new Instascan.Scanner({
+            video: document.getElementById('preview')
+        });
+        scanner.addListener('scan', function(content) {
+            alert(content);
+
+            window.open(content, '_blank');
+
+            var ref = firebase.database().ref("users/" + uid);
+            ref.orderByChild("email").equalTo(email).on("child_added", function(snapshot) {
+
+                var fname = snapshot.val().fname;
+                var lname = snapshot.val().lname;
+
+                alert(fname + " " + lname)
+            });
+
+
+            firebase.database().ref('scoreboard/').push({
+                user: uid,
+                points: 5
+            });
+
+        });
+
+        Instascan.Camera.getCameras().then(function(cameras) {
+
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+            } else {
+                console.error('No cameras found.');
+            }
+        }).catch(function(e) {
+            console.error(e);
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+
+</body>
+
+</html>
