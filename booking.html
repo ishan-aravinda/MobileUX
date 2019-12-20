@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    <script src = "https://checkout.stripe.com/checkout.js" ></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
 
 
 </head>
@@ -69,21 +69,30 @@
         padding: 0px;
     }
     
-    .ui-page-theme-b .ui-btn, html .ui-bar-b .ui-btn, html .ui-body-b .ui-btn, html body .ui-group-theme-b .ui-btn, html head+body .ui-btn.ui-btn-b, .ui-page-theme-b .ui-btn:visited, html .ui-bar-b .ui-btn:visited, html .ui-body-b .ui-btn:visited, html body .ui-group-theme-b .ui-btn:visited, html head+body .ui-btn.ui-btn-b:visited {
+    .ui-page-theme-b .ui-btn,
+    html .ui-bar-b .ui-btn,
+    html .ui-body-b .ui-btn,
+    html body .ui-group-theme-b .ui-btn,
+    html head+body .ui-btn.ui-btn-b,
+    .ui-page-theme-b .ui-btn:visited,
+    html .ui-bar-b .ui-btn:visited,
+    html .ui-body-b .ui-btn:visited,
+    html body .ui-group-theme-b .ui-btn:visited,
+    html head+body .ui-btn.ui-btn-b:visited {
         border: 1px solid white !important;
     }
-
+    
     body {
         background-image: url("./images/bg.png ");
         background-repeat: no-repeat;
         background-size: cover;
     }
-
+    
     .form-control {
         border: 1px solid white !important;
-        color: white; 
-        background-color: transparent !important; 
-        width: 100%; 
+        color: white;
+        background-color: transparent !important;
+        width: 100%;
         margin: auto;
     }
 </style>
@@ -163,7 +172,7 @@
                         <p style="float:left;">Class</p><br>
                         <div class="ui-field-contain">
                             <select id="classOfTicket" onchange="loadTicketClassPrice()" required>
-                                <option value="" disabled selected>Class</option>                                                
+                                <option value="" disabled selected>Class</option>
                                 <option value="100">First Class</option>
                                 <option value="10">Second Class</option>
                                 <option selected value="1">Third Class</option>
@@ -174,7 +183,7 @@
                         <p style="float:left;">Number of Tickets</p><br />
                         <div class="ui-field-contain">
                             <select id="numOfTickets" onchange="loadTotalPrice()" required>
-                                <option value="" disabled selected>Number of Tickets</option>                        
+                                <option value="" disabled selected>Number of Tickets</option>
                                 <option value="1" selected>01</option>
                                 <option value="2">02</option>
                                 <option value="3">03</option>
@@ -211,8 +220,9 @@
                 <br><br>
 
                 <div align="center" style="margin-top:15px;">
-<!--                    <button href="popupLogin" data-role="none" data-rel="popup" data-position-to="window" onclick="loadPopup()" class="btn btn-lg btn-primary btn-block" type="button" data-transition="pop" data-position-to="window"> Book Now </button>-->
-                    <a href="#popupLogin" onclick="loadPopup()" data-rel="popup" data-position-to="window" class="btn btn-lg btn-primary btn-block" data-transition="pop" data-position-to="window">Book Now</a>
+                    <!--                    <button href="popupLogin" data-role="none" data-rel="popup" data-position-to="window" onclick="loadPopup()" class="btn btn-lg btn-primary btn-block" type="button" data-transition="pop" data-position-to="window"> Book Now </button>-->
+                    <a href="#popupLogin" onclick="loadPopup()" data-rel="popup" data-position-to="window" class="btn btn-lg btn-primary btn-block" data-transition="pop" data-position-to="window">Book
+                        Now</a>
 
                     <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
 
@@ -222,9 +232,10 @@
 
                                 <h3>Confirm your Booking</h3>
 
-                                <p id="confirmation-msg" > test </p>
+                                <p id="confirmation-msg"> test </p>
 
-                                <button id="customButton" type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Proceed to Payment</button>
+                                <button id="customButton" type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Proceed
+                                    to Payment</button>
                             </div>
                         </form>
                     </div>
@@ -232,10 +243,10 @@
                 </div> <br>
                 <br>
                 <div align="centre" class="ui-block-b">
-                          <center>
-                    <!--        <a data-position-to="window" data-rel="popup" data-role="button" data-theme="a" href="#"-->
-                    <!--                               id="submit_booking">Book Now</a>-->
-                    <!--      </center>-->
+                    <center>
+                        <!--        <a data-position-to="window" data-rel="popup" data-role="button" data-theme="a" href="#"-->
+                        <!--                               id="submit_booking">Book Now</a>-->
+                        <!--      </center>-->
 
                 </div>
 
@@ -337,12 +348,12 @@
         <!--            SCRIPT FOR STRIPE INTEGRATION -->
 
         <script type="text/javascript">
-            jQuery(function($){
+            jQuery(function($) {
                 var $form = $('#bookingForm');
                 var handler = StripeCheckout.configure({
-                    key:'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
-                    token : function(token){
-                        if(token.id){
+                    key: 'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
+                    token: function(token) {
+                        if (token.id) {
                             $("#thankyouPayment").html("Thank you")
                         }
                     }
@@ -350,13 +361,13 @@
 
                 $('#customButton').on('click', function(e) {
                     handler.open({
-                        name : 'Treasure Train',
+                        name: 'Treasure Train',
                         currency: 'USD',
-                        description: 'ticket from '+ $('#from').val() +' to '+$('#to').val() ,
+                        description: 'ticket from ' + $('#from').val() + ' to ' + $('#to').val(),
                         amount: $('#price-per-ticket').val() * $('#numOfTickets').val()
-                    });
+                    }).
 
-                    $(window).on('popstate', function(){
+                    $(window).on('popstate', function() {
                         handler.close();
                     });
                 });
@@ -367,22 +378,23 @@
 
         <!--            SCRIPT FOR FINDING TICKET PRICE-->
         <script>
-            function loadTicketClassPrice(){
+            function loadTicketClassPrice() {
                 // alert("num1")
                 // alert(document.getElementById('classOfTicket').value)
                 var ticketClass = document.getElementById('classOfTicket').value;
                 // alert(ticketClass)
-                document.getElementById("price-per-ticket").value = ticketClass.toString()+".0 USD";
+                document.getElementById("price-per-ticket").value = ticketClass.toString() + ".0 USD";
                 loadTotalPrice();
                 // document.getElementById("price-per-ticket").value = "100";
 
             }
+
             function loadTotalPrice() {
                 // alert("k");
                 // alert(document.getElementById('numOfTickets').value;)
                 var ticketNum = document.getElementById('numOfTickets').value;
                 var ticketClass = document.getElementById('classOfTicket').value;
-                document.getElementById("price").value = ticketNum*ticketClass+".0 USD";
+                document.getElementById("price").value = ticketNum * ticketClass + ".0 USD";
 
             }
 
@@ -391,9 +403,11 @@
             function loadPopup() {
                 var FromLocation = document.getElementById('from').value;
                 var ToLocation = document.getElementById('to').value;
-                var date = document.getElementById('date').value
+                var date = document.getElementById('date').value;
+                var price = document.getElementById('price').value;
 
-                var popUpText = "Confirm your booking from " + FromLocation + " to " + ToLocation + " on " + date;
+                var popUpText = "Confirm your booking from " + FromLocation + " to " + ToLocation + " on " + date + "<br> Your Total Price is " + price;
+
 
                 document.getElementById("confirmation-msg").innerHTML = popUpText;
 

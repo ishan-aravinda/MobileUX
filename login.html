@@ -52,16 +52,13 @@
             display: block;
             /* Other styles here */
         }
-		
-	
-.back{
-    left: 0px;
-    position: absolute;
-	margin-top:1%;
-	margin-left:1%
-	}
-		
-
+        
+        .back {
+            left: 0px;
+            position: absolute;
+            margin-top: 1%;
+            margin-left: 1%
+        }
     </style>
 
 </head>
@@ -95,7 +92,7 @@
                     <!-- <p class="mt-5 mb-3 text-muted"> &copy; 2017-2018</p>-->
                     <div class="login-text-bottom">
                         <p> Forgot Password?</p>
-                        <p> Don't have an account? <a href="signup.html" class="ui-link"> Sign Up</a></p>
+                        <p> Don't have an account? <a href="signup.html" rel="external" class="ui-link"> Sign Up</a></p>
                     </div>
             </form>
             </div>
@@ -139,6 +136,10 @@
                     var errorMessage = error.message;
                     // ...
                 });
+            }
+
+            function goBack() {
+                window.history.back();
             }
         </script>
 

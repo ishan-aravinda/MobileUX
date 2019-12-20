@@ -92,6 +92,7 @@ table tr>td {
                 </div>
             </div>
         </div>
+    </div>
 
 
         <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
@@ -120,67 +121,88 @@ table tr>td {
             firebase.database();
         </script>
 
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
+            authDomain: "train-cde96.firebaseapp.com",
+            databaseURL: "https://train-cde96.firebaseio.com",
+            projectId: "train-cde96",
+            storageBucket: "train-cde96.appspot.com",
+            messagingSenderId: "45911183152",
+            appId: "1:45911183152:web:b27375f04a3b109b5442f5",
+            measurementId: "G-B29GE7SWEX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.database();
+    </script>
 
 
-        <script type="text/javascript">
-            var uid = getCookie("uid");
-            var email = getCookie("email");
 
-            var scanner = new Instascan.Scanner({
-                video: document.getElementById('preview')
+    <script type="text/javascript">
+        var uid = getCookie("uid");
+        var email = getCookie("email");
+
+        var scanner = new Instascan.Scanner({
+            video: document.getElementById('preview')
+        });
+        scanner.addListener('scan', function(content) {
+            alert(content);
+
+
+
+
+            if (content = "British Museum Great Court") {
+                alert("British Museum Great Court Challenge Complete");
+            } else if (content = "Buckingham Palace") {
+                alert("Buckingham Palace Challenge Complete");
+            } else if (content = "coco-cola London eye") {
+                alert("coco-cola London eye Complete");
+            } else if (content = "Kensington Palace") {
+                alert("Kensington Palace Challenge Complete");
+            } else if (content = "Madame Tussauds") {
+                alert("Madame Tussauds Challenge Complete");
+            } else if (content = "Tower of London") {
+                alert(" Tower of London Challenge Complete");
+            }
+
+            $("#contentText").html(content);
+
+            window.open(content, '_blank');
+
+            var ref = firebase.database().ref("users/" + uid);
+            ref.orderByChild("email").equalTo(email).on("child_added", function(snapshot) {
+
+                var fname = snapshot.val().fname;
+                var lname = snapshot.val().lname;
+
+                alert(fname + " " + lname)
             });
-            scanner.addListener('scan', function(content) {
-                alert(content);
 
 
-
-
-                if (content = "British Museum Great Court") {
-                    alert("British Museum Great Court Challenge Complete");
-                } else if (content = "Buckingham Palace") {
-                    alert("Buckingham Palace Challenge Complete");
-                } else if (content = "coco-cola London eye") {
-                    alert("coco-cola London eye Complete");
-                } else if (content = "Kensington Palace") {
-                    alert("Kensington Palace Challenge Complete");
-                } else if (content = "Madame Tussauds") {
-                    alert("Madame Tussauds Challenge Complete");
-                } else if (content = "Tower of London") {
-                    alert(" Tower of London Challenge Complete");
-                }
-
-                $("#contentText").html(content);
-
-                window.open(content, '_blank');
-
-                var ref = firebase.database().ref("users/" + uid);
-                ref.orderByChild("email").equalTo(email).on("child_added", function(snapshot) {
-
-                    var fname = snapshot.val().fname;
-                    var lname = snapshot.val().lname;
-
-                    alert(fname + " " + lname)
-                });
-
-
-                firebase.database().ref('scoreboard/').push({
-                    user: uid,
-                    points: 5
-                });
-
+            firebase.database().ref('scoreboard/').push({
+                user: uid,
+                points: 5
             });
 
-            Instascan.Camera.getCameras().then(function(cameras) {
+        });
 
-                if (cameras.length > 0) {
-                    scanner.start(cameras[0]);
-                } else {
-                    console.error('No cameras found.');
-                }
-            }).catch(function(e) {
-                console.error(e);
-            });
-        </script>
+        Instascan.Camera.getCameras().then(function(cameras) {
+
+            if (cameras.length > 0) {
+                scanner.start(cameras[0]);
+            } else {
+                console.error('No cameras found.');
+            }
+        }).catch(function(e) {
+            console.error(e);
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </body>
 
 </html>
