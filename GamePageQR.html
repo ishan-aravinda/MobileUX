@@ -36,7 +36,7 @@
             left: 0px;
             position: absolute;
             margin-top: 1%;
-            margin-left: 1%
+            margin-left: 1% z-index: 999;
         }
 
         .leaderboard{
@@ -48,7 +48,7 @@
 <body>
 
     <div class="back">
-        <a><img src="images/back-arrow.png" height="30" width="30" onclick="goBack()"></a>
+        <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30"></a>
     </div>
 
     <video id="preview" style="width: 100%; "></video>
@@ -116,14 +116,40 @@
                         <td>10000</td>
                     </tr>
                 </table>
+
             </div>
         </div>
     </div>
+
+    <!-- Pop Up -->
+
+
 
 
     <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
     <script src="js/CookieFunctions.js"></script>
     <!-- <script src="js/firebase-init.js"></script> -->
+
+    <script>
+        function goback() {
+            window.location = "./GamePageAR.html";
+        }
+
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
+            authDomain: "train-cde96.firebaseapp.com",
+            databaseURL: "https://train-cde96.firebaseio.com",
+            projectId: "train-cde96",
+            storageBucket: "train-cde96.appspot.com",
+            messagingSenderId: "45911183152",
+            appId: "1:45911183152:web:b27375f04a3b109b5442f5",
+            measurementId: "G-B29GE7SWEX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.database();
+    </script>
 
     <script>
         // Your web app's Firebase configuration
@@ -153,25 +179,6 @@
         });
         scanner.addListener('scan', function(content) {
             alert(content);
-
-
-
-
-            if (content = "British Museum Great Court") {
-                alert("British Museum Great Court Challenge Complete");
-            } else if (content = "Buckingham Palace") {
-                alert("Buckingham Palace Challenge Complete");
-            } else if (content = "coco-cola London eye") {
-                alert("coco-cola London eye Complete");
-            } else if (content = "Kensington Palace") {
-                alert("Kensington Palace Challenge Complete");
-            } else if (content = "Madame Tussauds") {
-                alert("Madame Tussauds Challenge Complete");
-            } else if (content = "Tower of London") {
-                alert(" Tower of London Challenge Complete");
-            }
-
-            $("#contentText").html(content);
 
             window.open(content, '_blank');
 
@@ -207,6 +214,8 @@
             window.history.back();
         }
     </script>
+
+
 </body>
 
 </html>

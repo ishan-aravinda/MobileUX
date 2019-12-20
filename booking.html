@@ -104,18 +104,20 @@
             <div data-role="header">
 
                 <div data-demo-html="true">
-                    <a href="./HomePage.html"><img src="./images/logo.png" rel="external" alt="Treasure Train Logo" width="200" height="150" style="float:left;"></a>
-
+                    
                     <div data-role="navbar" data-grid="c">
+                        <a href="./HomePage.html" rel="external" style="z-index: 999; margin-top:none; float: left; border: none !important;"><img  rel="external" style="z-index: 99999;" src="./images/logo.png"  alt="Treasure Train Logo" width="180vw" height="20%"></a>
+                        <a href="./account.html" rel="external" style="z-index: 999; float: right; border: none !important;"><img  rel="external" style="z-index: 99999;" src="./images/user.png"  alt="Profile" width="40vw" height="20%"></a>
+                    
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item">
                                 <a class="nav-link" href="./HomePage.html" rel="external">Home</a>
                             </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" href="./booking.html" rel="external">Book Tickets</a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./aboutus.html" rel="external">About Us</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./booking.html" rel="external">Book Tickets</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./login.html" rel="external">Play</a>
@@ -240,7 +242,8 @@
                         </form>
                     </div>
 
-                </div> <br>
+                </div>
+                <br>
                 <br>
                 <div align="centre" class="ui-block-b">
                     <center>
@@ -262,7 +265,7 @@
             <p>It is a startup that has a fun process to book tickets and visit places in London. Book tickets, Play Game, Review Places all in one platform.</p>
             <div class="div3">
                 <a href="https://www.facebook.com/Train/">
-                    <img src="images/facebook.JPG" height="30" width="30" style="margin-right:10px">
+                    <img src="images/fb.JPG" height="30" width="30" style="margin-right:10px">
                 </a>
                 <a href="https://twitter.com/train?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
                     <img src="images/twitter.JPG" height="30" width="30" style="margin-right:10px">
@@ -354,7 +357,8 @@
                     key: 'pk_test_cp21BcECf4kMMUbSlRlZlsMo',
                     token: function(token) {
                         if (token.id) {
-                            $("#thankyouPayment").html("Thank you")
+                            // $("#thankyouPayment").html("Thank you")
+                            document.location = "./HomePage.html";
                         }
                     }
                 })
