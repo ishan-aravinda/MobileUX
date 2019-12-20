@@ -6,6 +6,12 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="./js/instascan.min.js"></script>
 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
     <style>
         body {
             background: url(images/background.png) no-repeat center center fixed;
@@ -38,8 +44,11 @@
             margin-top: 1%;
             margin-left: 1% z-index: 999;
         }
+
         .leaderboard{
-            margin: 0 auto;
+            margin-left: 25vw;
+            /*margin-right: 50px;*/
+
         }
     </style>
 </head>
@@ -55,43 +64,34 @@
 <div data-role="content">
     <div class="container">
 
+        <h2 style="color: black">Leader Board</h2>
 
         <div class="leaderboard">
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px;text-align: center"  >Name</div></div>
+                <div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px;text-align: center">Points</div></div>
+            </div><!-- /grid-a -->
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center"><img src="css/images/icons8-medal-first-place-16.png" width="30" height="30"align="left">Smaith</div></div>
+                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">5000</div></div>
+            </div><!-- /grid-a -->
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center"><img src="css/images/icons8-medal-second-place-64.png" width="30" height="30" align="left">Don Juan</div></div>
+                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">4000</div></div>
+            </div><!-- /grid-a -->
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center"><img src="css/images/icons8-medal-third-place-64.png" width="30" height="30"align="left">Jack Sparrow</div></div>
+                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">3900</div></div>
+            </div><!-- /grid-a -->
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">Daniel Sparrow</div></div>
+                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">1999</div></div>
+            </div><!-- /grid-a -->
+            <div class="ui-grid-b">
+                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">Prasadee</div></div>
+                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">1991</div></div>
+            </div><!-- /grid-a -->
 
-
-            <table>
-                <tr>
-                    <th></th>
-                    <th width="100%">Name</th>
-                    <th>Points</th>
-                </tr>
-                <tr>
-                    <td><img src="./images/1st.jpg" width="30" height="30"></td>
-                    <td>Smith</td>
-                    <td>50000</td>
-                </tr>
-
-                <tr>
-                    <td><img src="./images/2nd.jpg" width="30" height="30"></td>
-                    <td>Jackson</td>
-                    <td>40000</td>
-                </tr>
-                <tr>
-                    <td><img src="./images/3rd.jpg" width="30" height="30"></td>
-                    <td>Eve</td>
-                    <td>30000</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>Ann</td>
-                    <td>20000</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>Hilary</td>
-                    <td>10000</td>
-                </tr>
-            </table>
 
         </div>
     </div>
@@ -110,6 +110,7 @@
     function goback() {
         window.location = "./GamePageAR.html";
     }
+
     // Your web app's Firebase configuration
     var firebaseConfig = {
         apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
@@ -148,24 +149,34 @@
 <script type="text/javascript">
     var uid = getCookie("uid");
     var email = getCookie("email");
+
     var scanner = new Instascan.Scanner({
         video: document.getElementById('preview')
     });
     scanner.addListener('scan', function(content) {
         alert(content);
+
         window.open(content, '_blank');
+
         var ref = firebase.database().ref("users/" + uid);
         ref.orderByChild("email").equalTo(email).on("child_added", function(snapshot) {
+
             var fname = snapshot.val().fname;
             var lname = snapshot.val().lname;
+
             alert(fname + " " + lname)
         });
+
+
         firebase.database().ref('scoreboard/').push({
             user: uid,
             points: 5
         });
+
     });
+
     Instascan.Camera.getCameras().then(function(cameras) {
+
         if (cameras.length > 0) {
             scanner.start(cameras[0]);
         } else {
@@ -174,6 +185,7 @@
     }).catch(function(e) {
         console.error(e);
     });
+
     function goBack() {
         window.history.back();
     }
