@@ -68,7 +68,7 @@
 
 
         <div class="back">
-            <a><img src="images/back-arrow.png" height="30" width="30"></a>
+            <a><img src="images/back-arrow.png" height="30" width="30" onclick="goBack()"></a>
         </div>
 
         <div data-role="content">
@@ -132,6 +132,10 @@
                     var errorMessage = error.message;
                     // ...
                 });
+            }
+
+            function goBack() {
+                window.history.back();
             }
         </script>
 

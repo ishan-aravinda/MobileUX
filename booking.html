@@ -365,12 +365,9 @@
                         currency: 'USD',
                         description: 'ticket from ' + $('#from').val() + ' to ' + $('#to').val(),
                         amount: $('#price-per-ticket').val() * $('#numOfTickets').val()
-                    }).then(output => {
-                        alert("test");
                     }).
 
                     $(window).on('popstate', function() {
-                        window.location = './HomePage.html'
                         handler.close();
                     });
                 });
