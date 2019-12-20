@@ -71,7 +71,7 @@
 
 	
 <div class="back">
-    <a><img src="images/back-arrow.png" height="30" width="30" ></a>
+    <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30" ></a>
 </div>
 
         <div data-role="content">
@@ -109,6 +109,10 @@
 
 
         <script>
+            function goback() {
+            window.location = "./HomePage.html";
+            }
+
             function onLoad() {
 
                 $('.ui-button-text').each(function(i) {
