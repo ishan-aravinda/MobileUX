@@ -37,10 +37,8 @@ div.container {
 }
 
 div.main {
-    width: 320px;
+    width: 100%;
     margin-top: 80px;
-    margin-left: 250px;
-    float: left;
     padding: 10px 55px 40px;
     border-radius: 2px;
     font-size: 13px;
@@ -81,8 +79,8 @@ label {
     text-align: center;
     font-size: 16px;
     color: #fff;
-    background: #3b5998;
-    border-color: #3b5998;
+    background: #1D3F7C;
+    border-color: #1D3F7C;
 }
 
 .lwg {

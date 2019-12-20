@@ -1,11 +1,30 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+    <head>
+        <meta charset="utf-8">
+        <title>Game Screen</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+        <!-- Include JQuery Mobile -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    
+        <link rel="stylesheet" href="css/signin.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
     <style>
         body {
             background-image: url("./images/bg.png ");
@@ -22,9 +41,21 @@
         .ui-content {
             background: transparent;
         }
+
+        .ui-page-theme-a .ui-btn, html .ui-bar-a .ui-btn, html .ui-body-a .ui-btn, html body .ui-group-theme-a .ui-btn, html head+body .ui-btn.ui-btn-a, .ui-page-theme-a .ui-btn:visited, html .ui-bar-a .ui-btn:visited, html .ui-body-a .ui-btn:visited, html body .ui-group-theme-a .ui-btn:visited, html head+body .ui-btn.ui-btn-a:visited {
+            background-color: #1e4072 !important;            
+        }
         
+        li.active {
+    background-color: #0f2e5c !important;            
+}
+
+li a:hover:not(.active) {
+    background-color: #0f2e5c !important;
+}
+
         #map {
-            height: 88.7%;
+            height: 75%;
             /* The height is 400 pixels */
             width: 100%;
             /* The width is the width of the web page */
@@ -34,27 +65,34 @@
 </head>
 
 <body>
-    <div data-role="page">
+    <div class="body" data-role="page">
 
         <div align="center" data-role="header">
             <div data-role="header">
 
                 <div data-demo-html="true">
-                    <a href="./HomePage.html"><img src="./images/logo.png" alt="Treasure Train Logo" width="200" height="200" style="float:left;"></a>
+                    <a href="./HomePage.html" rel="external"> <img src="./images/logo.png" alt="Treasure Train Logo" width="200" height="150" style="float:left;"></a>
+
                     <div data-role="navbar" data-grid="c">
-                        <ul>
-                            <li><a href="./HomePage.html">Home</a></li>
-                            <li><a href="./booking.html">Book Tickets</a></li>
-                            <li><a href="/aboutus.html">About Us</a></li>
-                            <li><a href="./login.html" class="ui-btn-active">Play Game</a></li>
+                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./HomePage.html" rel="external">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./booking.html" rel="external">Book Tickets</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./aboutus.html" rel="external">About Us</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./login.html" rel="external">Play</a>
+                            </li>
                         </ul>
                     </div>
-                    <!-- /navbar -->
                 </div>
-                <!--/demo-html -->
             </div>
         </div>
-    </div>
+    
 
     <div data-role="content">
         <div id="map" style="position: absolute; bottom: 0px;"></div>
