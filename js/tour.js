@@ -120,12 +120,13 @@ $(function() {
         showTooltip();
     }
 
-    function endTour() {
+    function endTour(){
         step = 0;
-        if (autoplay) clearTimeout(showtime);
-        removeTooltip();
-        hideControls();
-        hideOverlay();
+        // if(autoplay) clearTimeout(showtime);
+        // removeTooltip();
+        // hideControls();
+        // hideOverlay();
+        window.open("./HomePage.html","_self")
     }
 
     function restartTour() {
