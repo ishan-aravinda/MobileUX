@@ -136,7 +136,7 @@
             <source width="100%" src="intro-movie.mp4" type="video/mp4">
         </video>
             <div align="center" style="margin-top:15px;">
-                <button data-role="none" class="btn btn-lg btn-primary btn-block body-text tour_1" type="button"> Play
+                <button data-role="none" class="btn btn-lg btn-primary btn-block body-text tour_1" type="button" onclick="goToPlay()"> Play
                 Now </button>
             </div>
             <br><br>
@@ -313,6 +313,10 @@
         function goToLocation(locationName) {
             window.location = './location.html?locationname=' + locationName;
 
+        }
+
+        function goToPlay() {
+            window.location = './login.html'
         }
     </script>
 
