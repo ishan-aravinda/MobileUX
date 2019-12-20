@@ -25,6 +25,12 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+    <link rel="stylesheet" type="text/css" href="css/jquerytour.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!-- <link rel="stylesheet" href="css/splash.css"> -->
+
 </head>
 <style>
     body {
@@ -34,7 +40,7 @@
         background-position: center center;
         background-attachment: fixed;
     }
-        
+    
     .ui-btn {
         border: 0.25px solid white !important;
         background-color: transparent !important;
@@ -54,14 +60,14 @@
     .ui-mobile fieldset.ui-field-contain {
         padding: 0px;
     }
-
+    
     .form-control {
-        color: white; 
-        background-color: transparent; 
-        width: 70%; 
+        color: white;
+        background-color: transparent;
+        width: 70%;
         margin: auto;
     }
-
+    
     body {
         background-image: url("./images/bg.png ");
         background-repeat: no-repeat;
@@ -69,39 +75,45 @@
     }
 </style>
 
-<body>
+<body class="welcome">
+
+    <span id="splash-overlay" class="splash"></span>
+    <span id="welcome" class="z-depth-4"></span>
 
     <script>
-        $(document).ready(function(){
-          $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $(".card").filter(function() {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        $(document).ready(function() {
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".card").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
             });
-          });
         });
     </script>
 
     <div class="body" data-role="page">
+
+        <!-- <div class="loader"><img src="images/spinner.gif"></div> -->
+
         <div align="center" data-role="header">
             <div data-role="header">
 
                 <div data-demo-html="true">
-                    <a href="./HomePage.html"><img src="./images/logo.png"  rel="external"  alt="Treasure Train Logo" width="200" height="150" style="float:left;"></a>
+                    <a href="./HomePage.html"><img src="./images/logo.png" rel="external" alt="Treasure Train Logo" width="200" height="150" style="float:left;"></a>
 
-                    <div data-role="navbar" data-grid="c">
+                    <div data-role="navbar" data-grid="c" class="tour_3">
                         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li class="nav-item active">
-                                <a class="nav-link" href="./HomePage.html"  rel="external" >Home</a>
+                                <a class="nav-link" href="./HomePage.html" rel="external">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./booking.html"  rel="external" >Book Tickets</a>
+                                <a class="nav-link" href="./booking.html" rel="external">Book Tickets</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./aboutus.html"  rel="external" >About Us</a>
+                                <a class="nav-link" href="./aboutus.html" rel="external">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./login.html"  rel="external" >Play</a>
+                                <a class="nav-link" href="./login.html" rel="external">Play</a>
                             </li>
                         </ul>
 
@@ -116,20 +128,21 @@
                 <source width="100%" src="intro-movie.mp4" type="video/mp4">
             </video>
             <div align="center" style="margin-top:15px;">
-                <button data-role="none" class="btn btn-lg btn-primary btn-block" type="button"> Play Now </button>
+                <button data-role="none" class="btn btn-lg btn-primary btn-block body-text tour_1" type="button"> Play
+                    Now </button>
             </div>
-            <br><br> 
+            <br><br>
             <input data-role="none" type="email" id="myInput" class="form-control" placeholder="Search.." autofocus>
             <!-- <div class="searcharea">
                <input id="myInput" class="searching" type="text" style="height:15px;width:200px;" placeholder="Search.." > 
             </div>  -->
-            
-            <br><br> 
+
+            <br><br>
             <div style="display: inline-block;">
 
                 <div class="row justify-content-md-center">
 
-                    <div class="card col-sm-4 col-md-4" >
+                    <div class="card col-sm-4 col-md-4">
                         <a href="#" onclick="goToLocation('Coco-Cola london-eye')">
                             <img class="card-img-top" src="./images/Locations/Coco-Cola london-eye.jpg" class="poi_img" style="width:100%">
                             <div class="card-body">
@@ -158,8 +171,8 @@
                             </div>
                         </a>
                     </div>
-                
-                    <div class="card col-sm-4">
+
+                    <div class="card col-sm-4 tour_2">
                         <a href="#" onclick="goToLocation('Kensington Palace')">
                             <img class="card-img-top" src="./images/Locations/kensington-palace.jpg" alt="location" class="poi_img" style="width:100%">
                             <div class="card-body">
@@ -192,11 +205,11 @@
                 </div>
 
             </div>
-            <br><br>                
+            <br><br>
 
         </div>
 
-        <div class="footer1">
+        <div class="footer1 tour_4">
             <br>
             <p>About Us</p>
             <p>It is a startup that has a fun process to book tickets and visit places in London. Book tickets, Play Game, Review Places all in one platform.</p>
@@ -287,11 +300,31 @@
 
 
     </div>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script src="./js/tour.js"></script>
+
     <script>
         function goToLocation(locationName) {
             window.location = './location.html?locationname=' + locationName;
 
         }
+    </script>
+
+    <!--SCRIPT FOR THE LOAING OVERLAY-->
+    <script type="text/javascript">
+        function hideLoader() {
+            function FetchData() {
+                $('.loader').fadeOut();
+
+            }
+            setTimeout(FetchData, 3000);
+
+        }
+        $(window).ready(hideLoader);
+
+        // Strongly recommended: Hide loader after 20 seconds, even if the page hasn't finished loading
+        setTimeout(hideLoader, 20 * 1000);
     </script>
 </body>
 
