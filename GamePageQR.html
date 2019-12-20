@@ -3,11 +3,8 @@
 
 <head>
     <title>QR Scanner</title>
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="./js/instascan.min.js"></script>
-
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
@@ -42,7 +39,8 @@
             left: 0px;
             position: absolute;
             margin-top: 1%;
-            margin-left: 1% z-index: 999;
+            margin-left: 1% ;
+            z-index: 999;
         }
 
         .leaderboard{
@@ -51,6 +49,96 @@
 
         }
     </style>
+
+
+<!--    STYLE FOR ALERT BOX-->
+    <style>
+        /*@import url(https://fonts.googleapis.com/css?family=Noto+Sans);*/
+        /*body {*/
+        /*    background: #011e17;*/
+        /*    font-family: 'Noto Sans', 'Helvetica';*/
+        /*}*/
+
+        .customAlert {
+            display: none;
+            position: fixed;
+            max-width: 25%;
+            min-width: 250px !important;
+            min-height: 20%;
+            height: 200px;
+            left: 50%;
+            top: 50%;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-left: -12.5%;
+            margin-top: -5.2%;
+            background: #088A68;
+            z-index: 999;
+        }
+        @media all and (max-width: 1300px) {
+            .customAlert .message {
+                font-size: 14px !important;
+            }
+            .customAlert input[type='button'] {
+                height: 15% !important;
+            }
+        }
+        .customAlert .message {
+            padding: 5px;
+            color: white;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: justify;
+        }
+        .customAlert input[type='button'] {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 50%;
+            height: 36px;
+            margin-top: -45px;
+            margin-left: -25%;
+            outline: 0;
+            border: 0;
+            background: #04B486;
+            color: white;
+        }
+        .customAlert input[type='button']:hover {
+            transition: 0.3s;
+            cursor: pointer;
+            background: #05cd99;
+        }
+
+        .rab {
+            width: 200px;
+            height: 30px;
+            outline: 0;
+            border: 0;
+            color: white;
+            background: #039b73;
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+
+    </style>
+
+
 </head>
 
 <body>
@@ -59,12 +147,17 @@
     <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30"></a>
 </div>
 
+<div class='customAlert'>
+    <p class='message'></p>
+    <input type='button' class='confirmButton' value='Ok'>
+</div>
+
 <video id="preview" style="width: 100%; "></video>
 
 <div data-role="content">
     <div class="container">
-
-        <h2 style="color: black">Leader Board</h2>
+<!--        <input type='button' onclick="myFunction()" value='Raise alert'>-->
+        <h2 >Leader Board</h2>
 
         <div class="leaderboard">
             <div class="ui-grid-b">
@@ -98,6 +191,11 @@
 </div>
 
 <!-- Pop Up -->
+<script>
+    function myFunction() {
+        alert("Hello! I am an alert box!");
+    }
+</script>
 
 
 
@@ -168,6 +266,8 @@
         });
 
 
+
+
         firebase.database().ref('scoreboard/').push({
             user: uid,
             points: 5
@@ -190,6 +290,51 @@
         window.history.back();
     }
 </script>
+
+
+<!--SCRIPT FOR ALERT CSS-->
+<script>
+    var currentCallback;
+
+    // override default browser alert
+    window.alert = function(msg, callback){
+        $('.message').text(msg);
+        $('.customAlert').css('animation', 'fadeIn 0.3s linear');
+        $('.customAlert').css('display', 'inline');
+        setTimeout(function(){
+            $('.customAlert').css('animation', 'none');
+        }, 300);
+        currentCallback = callback;
+    }
+
+    $(function(){
+
+        // add listener for when our confirmation button is clicked
+        $('.confirmButton').click(function(){
+            $('.customAlert').css('animation', 'fadeOut 0.3s linear');
+                $('.customAlert').css('animation', 'none');
+                $('.customAlert').css('display', 'none');
+            currentCallback();
+        })
+
+        // $('.rab').click(function(){
+        //     alert("If you think about anything, you are actually doing a recursive function which resolves your neurons into a deep pi calculation. You are then executing about 4294 threads in your brain, which do a parallel computation.",
+        //         function(){
+        //             console.log("Callback executed");
+        //         })
+        // });
+
+        // // our custom alert box
+        // setTimeout(function(){
+        //   alert('You are probably reading this alert box and have no clue why the heck you are even reading it, well guess what, the moon in reality is nothing else than a big ass pokemon, floating in space.', function(){
+        //       console.log("Callback executed");
+        //     });
+        // }, 500);
+    });
+
+
+</script>
+
 
 
 </body>
