@@ -125,14 +125,15 @@ label {
     color: white !important;
 }
 
-button {
+
+/* button {
     display: inline-block;
     height: 44px;
     padding: 0;
     margin: 0;
     vertical-align: top;
     width: 323px;
-}
+} */
 
 day,
 month,
@@ -548,17 +549,17 @@ form p {
     h4 {
         font-size: 16px;
     }
-    .div.main{
-    height: auto !important;
+    .div.main {
+        height: auto !important;
         width: auto !important;
     }
 }
 
-@media (min-width: 768px){
-.container {
-    max-width: 823px !important;
-    height: 100% !important;
-}
+@media (min-width: 768px) {
+    .container {
+        max-width: 823px !important;
+        height: 100% !important;
+    }
 }
 
 @media (min-width: 601px) and (max-width: 768px) {}

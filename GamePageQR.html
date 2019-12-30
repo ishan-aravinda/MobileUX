@@ -17,48 +17,47 @@
             -o-background-size: cover;
             background-size: cover;
         }
-
+        
         h2 {
             text-align: center;
             font-size: 24px;
             color: white;
         }
-
+        
         table {
             padding-right: 10%;
             padding-left: 10%;
             color: white;
             font-size: 20px
         }
-
+        
         table tr>td {
             padding-bottom: 5%;
         }
-
+        
         .back {
             left: 0px;
             position: absolute;
             margin-top: 1%;
-            margin-left: 1% ;
+            margin-left: 1%;
             z-index: 999;
         }
-
-        .leaderboard{
+        
+        .leaderboard {
             margin-left: 25vw;
             /*margin-right: 50px;*/
-
         }
     </style>
 
 
-<!--    STYLE FOR ALERT BOX-->
+    <!--    STYLE FOR ALERT BOX-->
     <style>
         /*@import url(https://fonts.googleapis.com/css?family=Noto+Sans);*/
         /*body {*/
         /*    background: #011e17;*/
         /*    font-family: 'Noto Sans', 'Helvetica';*/
         /*}*/
-
+        
         .customAlert {
             display: none;
             position: fixed;
@@ -75,6 +74,7 @@
             background: #088A68;
             z-index: 999;
         }
+        
         @media all and (max-width: 1300px) {
             .customAlert .message {
                 font-size: 14px !important;
@@ -83,6 +83,7 @@
                 height: 15% !important;
             }
         }
+        
         .customAlert .message {
             padding: 5px;
             color: white;
@@ -90,6 +91,7 @@
             line-height: 20px;
             text-align: justify;
         }
+        
         .customAlert input[type='button'] {
             position: absolute;
             top: 100%;
@@ -103,12 +105,13 @@
             background: #04B486;
             color: white;
         }
+        
         .customAlert input[type='button']:hover {
             transition: 0.3s;
             cursor: pointer;
             background: #05cd99;
         }
-
+        
         .rab {
             width: 200px;
             height: 30px;
@@ -117,7 +120,7 @@
             color: white;
             background: #039b73;
         }
-
+        
         @keyframes fadeOut {
             from {
                 opacity: 1;
@@ -126,6 +129,7 @@
                 opacity: 0;
             }
         }
+        
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -134,8 +138,6 @@
                 opacity: 1;
             }
         }
-
-
     </style>
 
 
@@ -143,197 +145,225 @@
 
 <body>
 
-<div class="back">
-    <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30"></a>
-</div>
+    <div class="back">
+        <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30"></a>
+    </div>
 
-<div class='customAlert'>
-    <p class='message'></p>
-    <input type='button' class='confirmButton' value='Ok'>
-</div>
+    <div class='customAlert'>
+        <p class='message'></p>
+        <input type='button' class='confirmButton' value='Ok'>
+    </div>
 
-<video id="preview" style="width: 100%; "></video>
+    <video id="preview" style="width: 100%; "></video>
 
-<div data-role="content">
-    <div class="container">
-<!--        <input type='button' onclick="myFunction()" value='Raise alert'>-->
-        <h2 >Leader Board</h2>
+    <div data-role="content">
+        <div class="container">
+            <!--        <input type='button' onclick="myFunction()" value='Raise alert'>-->
+            <h2>Leader Board</h2>
 
-        <div class="leaderboard">
-            <div class="ui-grid-b">
-                <div class="ui-block-a"><div class="ui-bar ui-bar-b" style="height:60px;text-align: center"  >Name</div></div>
-                <div class="ui-block-b"><div class="ui-bar ui-bar-b" style="height:60px;text-align: center">Points</div></div>
-            </div><!-- /grid-a -->
-            <div class="ui-grid-b">
-                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center"><img src="css/images/icons8-medal-first-place-16.png" width="30" height="30"align="left">Smaith</div></div>
-                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">5000</div></div>
-            </div><!-- /grid-a -->
-            <div class="ui-grid-b">
-                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center"><img src="css/images/icons8-medal-second-place-64.png" width="30" height="30" align="left">Don Juan</div></div>
-                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">4000</div></div>
-            </div><!-- /grid-a -->
-            <div class="ui-grid-b">
-                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center"><img src="css/images/icons8-medal-third-place-64.png" width="30" height="30"align="left">Jack Sparrow</div></div>
-                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">3900</div></div>
-            </div><!-- /grid-a -->
-            <div class="ui-grid-b">
-                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">Daniel Sparrow</div></div>
-                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">1999</div></div>
-            </div><!-- /grid-a -->
-            <div class="ui-grid-b">
-                <div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">Prasadee</div></div>
-                <div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height:60px;text-align: center">1991</div></div>
-            </div><!-- /grid-a -->
+            <div class="leaderboard">
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <div class="ui-bar ui-bar-b" style="height:60px;text-align: center">Name</div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="ui-bar ui-bar-b" style="height:60px;text-align: center">Points</div>
+                    </div>
+                </div>
+                <!-- /grid-a -->
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <div class="ui-bar ui-bar-a" style="height:60px;text-align: center"><img src="css/images/icons8-medal-first-place-16.png" width="30" height="30" align="left">Smaith</div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="ui-bar ui-bar-a" style="height:60px;text-align: center">5000</div>
+                    </div>
+                </div>
+                <!-- /grid-a -->
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <div class="ui-bar ui-bar-a" style="height:60px;text-align: center"><img src="css/images/icons8-medal-second-place-64.png" width="30" height="30" align="left">Don Juan</div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="ui-bar ui-bar-a" style="height:60px;text-align: center">4000</div>
+                    </div>
+                </div>
+                <!-- /grid-a -->
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <div class="ui-bar ui-bar-a" style="height:60px;text-align: center"><img src="css/images/icons8-medal-third-place-64.png" width="30" height="30" align="left">Jack Sparrow</div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="ui-bar ui-bar-a" style="height:60px;text-align: center">3900</div>
+                    </div>
+                </div>
+                <!-- /grid-a -->
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <div class="ui-bar ui-bar-a" style="height:60px;text-align: center">Daniel Sparrow</div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="ui-bar ui-bar-a" style="height:60px;text-align: center">1999</div>
+                    </div>
+                </div>
+                <!-- /grid-a -->
+                <div class="ui-grid-b">
+                    <div class="ui-block-a">
+                        <div class="ui-bar ui-bar-a" style="height:60px;text-align: center">Prasadee</div>
+                    </div>
+                    <div class="ui-block-b">
+                        <div class="ui-bar ui-bar-a" style="height:60px;text-align: center">1991</div>
+                    </div>
+                </div>
+                <!-- /grid-a -->
 
 
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Pop Up -->
-<script>
-    function myFunction() {
-        alert("Hello! I am an alert box!");
-    }
-</script>
-
-
-
-
-<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
-<script src="js/CookieFunctions.js"></script>
-<!-- <script src="js/firebase-init.js"></script> -->
-
-<script>
-    function goback() {
-        window.location = "./GamePageAR.html";
-    }
-
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
-        authDomain: "train-cde96.firebaseapp.com",
-        databaseURL: "https://train-cde96.firebaseio.com",
-        projectId: "train-cde96",
-        storageBucket: "train-cde96.appspot.com",
-        messagingSenderId: "45911183152",
-        appId: "1:45911183152:web:b27375f04a3b109b5442f5",
-        measurementId: "G-B29GE7SWEX"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.database();
-</script>
-
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
-        authDomain: "train-cde96.firebaseapp.com",
-        databaseURL: "https://train-cde96.firebaseio.com",
-        projectId: "train-cde96",
-        storageBucket: "train-cde96.appspot.com",
-        messagingSenderId: "45911183152",
-        appId: "1:45911183152:web:b27375f04a3b109b5442f5",
-        measurementId: "G-B29GE7SWEX"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.database();
-</script>
-
-
-
-<script type="text/javascript">
-    var uid = getCookie("uid");
-    var email = getCookie("email");
-
-    var scanner = new Instascan.Scanner({
-        video: document.getElementById('preview')
-    });
-    scanner.addListener('scan', function(content) {
-        alert(content);
-
-        window.open(content, '_blank');
-
-        var ref = firebase.database().ref("users/" + uid);
-        ref.orderByChild("email").equalTo(email).on("child_added", function(snapshot) {
-
-            var fname = snapshot.val().fname;
-            var lname = snapshot.val().lname;
-
-            alert(fname + " " + lname)
-        });
-
-
-
-
-        firebase.database().ref('scoreboard/').push({
-            user: uid,
-            points: 5
-        });
-
-    });
-
-    Instascan.Camera.getCameras().then(function(cameras) {
-
-        if (cameras.length > 0) {
-            scanner.start(cameras[0]);
-        } else {
-            console.error('No cameras found.');
+    <!-- Pop Up -->
+    <script>
+        function myFunction() {
+            alert("Hello! I am an alert box!");
         }
-    }).catch(function(e) {
-        console.error(e);
-    });
-
-    function goBack() {
-        window.history.back();
-    }
-</script>
+    </script>
 
 
-<!--SCRIPT FOR ALERT CSS-->
-<script>
-    var currentCallback;
 
-    // override default browser alert
-    window.alert = function(msg, callback){
-        $('.message').text(msg);
-        $('.customAlert').css('animation', 'fadeIn 0.3s linear');
-        $('.customAlert').css('display', 'inline');
-        setTimeout(function(){
-            $('.customAlert').css('animation', 'none');
-        }, 300);
-        currentCallback = callback;
-    }
 
-    $(function(){
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+    <script src="js/CookieFunctions.js"></script>
+    <!-- <script src="js/firebase-init.js"></script> -->
 
-        // add listener for when our confirmation button is clicked
-        $('.confirmButton').click(function(){
-            $('.customAlert').css('animation', 'fadeOut 0.3s linear');
+    <script>
+        function goback() {
+            window.location = "./GamePageAR.html";
+        }
+
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
+            authDomain: "train-cde96.firebaseapp.com",
+            databaseURL: "https://train-cde96.firebaseio.com",
+            projectId: "train-cde96",
+            storageBucket: "train-cde96.appspot.com",
+            messagingSenderId: "45911183152",
+            appId: "1:45911183152:web:b27375f04a3b109b5442f5",
+            measurementId: "G-B29GE7SWEX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.database();
+    </script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
+            authDomain: "train-cde96.firebaseapp.com",
+            databaseURL: "https://train-cde96.firebaseio.com",
+            projectId: "train-cde96",
+            storageBucket: "train-cde96.appspot.com",
+            messagingSenderId: "45911183152",
+            appId: "1:45911183152:web:b27375f04a3b109b5442f5",
+            measurementId: "G-B29GE7SWEX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.database();
+    </script>
+
+
+
+    <script type="text/javascript">
+        var uid = getCookie("uid");
+        var email = getCookie("email");
+
+        var scanner = new Instascan.Scanner({
+            video: document.getElementById('preview')
+        });
+        scanner.addListener('scan', function(content) {
+            alert("Congratulations!!  You have completed the " + content + " challenge. \n You have recieved 50 pints");
+
+            window.open(content, '_blank');
+
+            var ref = firebase.database().ref("users/" + uid);
+            ref.orderByChild("email").equalTo(email).on("child_added", function(snapshot) {
+
+                var fname = snapshot.val().fname;
+                var lname = snapshot.val().lname;
+
+                alert(fname + " " + lname)
+            });
+
+
+
+
+            firebase.database().ref('scoreboard/').push({
+                user: uid,
+                points: 5
+            });
+
+        });
+
+        Instascan.Camera.getCameras().then(function(cameras) {
+
+            if (cameras.length > 0) {
+                scanner.start(cameras[1]);
+            } else {
+                console.error('No cameras found.');
+            }
+        }).catch(function(e) {
+            console.error(e);
+        });
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+
+    <!--SCRIPT FOR ALERT CSS-->
+    <!-- <script>
+        var currentCallback;
+
+        // override default browser alert
+        window.alert = function(msg, callback) {
+            $('.message').text(msg);
+            $('.customAlert').css('animation', 'fadeIn 0.3s linear');
+            $('.customAlert').css('display', 'inline');
+            setTimeout(function() {
+                $('.customAlert').css('animation', 'none');
+            }, 300);
+            currentCallback = callback;
+        }
+
+        $(function() {
+
+            // add listener for when our confirmation button is clicked
+            $('.confirmButton').click(function() {
+                $('.customAlert').css('animation', 'fadeOut 0.3s linear');
                 $('.customAlert').css('animation', 'none');
                 $('.customAlert').css('display', 'none');
-            currentCallback();
-        })
+                currentCallback();
+            })
 
-        // $('.rab').click(function(){
-        //     alert("If you think about anything, you are actually doing a recursive function which resolves your neurons into a deep pi calculation. You are then executing about 4294 threads in your brain, which do a parallel computation.",
-        //         function(){
-        //             console.log("Callback executed");
-        //         })
-        // });
+            // $('.rab').click(function(){
+            //     alert("If you think about anything, you are actually doing a recursive function which resolves your neurons into a deep pi calculation. You are then executing about 4294 threads in your brain, which do a parallel computation.",
+            //         function(){
+            //             console.log("Callback executed");
+            //         })
+            // });
 
-        // // our custom alert box
-        // setTimeout(function(){
-        //   alert('You are probably reading this alert box and have no clue why the heck you are even reading it, well guess what, the moon in reality is nothing else than a big ass pokemon, floating in space.', function(){
-        //       console.log("Callback executed");
-        //     });
-        // }, 500);
-    });
-
-
-</script>
+            // // our custom alert box
+            // setTimeout(function(){
+            //   alert('You are probably reading this alert box and have no clue why the heck you are even reading it, well guess what, the moon in reality is nothing else than a big ass pokemon, floating in space.', function(){
+            //       console.log("Callback executed");
+            //     });
+            // }, 500);
+        });
+    </script> -->
 
 
 
