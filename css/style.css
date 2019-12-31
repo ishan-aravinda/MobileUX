@@ -298,6 +298,11 @@ li a:hover:not(.active) {
     font-weight: normal !important;
 }
 
+.ui-collapsible-inset .ui-collapsible-heading .ui-btn {
+    height: 50px;
+    border: 1px solid white !important;
+}
+
 .btn-block {
     width: 50%;
     text-align: center;
@@ -535,6 +540,17 @@ form p {
 .div1 {
     margin-right: 10px;
 }
+
+.logout {
+    width: 50%;
+    text-align: center;
+    color: white !important;
+    background-color: #0076ff;
+}
+
+/* .ui-collapsible-content>.ui-listview:not(.ui-listview-inset) {
+    background-color: #383736 !important;
+} */
 
 @media (max-width: 300px) {}
 

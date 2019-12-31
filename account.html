@@ -72,6 +72,10 @@
     .ui-mobile fieldset.ui-field-contain {
         padding: 0px;
     }
+
+    .ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a {
+        background-color: transparent !important;
+    }
     
     .ui-page-theme-b .ui-btn,
     html .ui-bar-b .ui-btn,
@@ -196,16 +200,26 @@
                         </a>
                     </div>
                     <br>
-                    <h2 class="h2-style">Favourites</h2>
+                    <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right">
+                        <h2 class="h2-style">Favourites</h2>
+                            <ul data-role="listview" data-inset="false">
+                                <div id="favourites">
+                                    <!-- favourite list goes here -->
+                                </div>
+                                <br>
+                                <div align="center" style="margin-top:15px;">
+                                <a href="#" onclick="sendEmail()" class="btn btn-lg btn-primary btn-block logout">
+                                    <p>Email List</p>
+                                </a>
+                                </div>
+                            </ul>
+                        </div>
 
                     <div class="ui-block-a element" style="margin-top:20px">
                         <div id="favourites-div" class="panel">
-                            <div id="favourites">
-                                <!-- favourite list goes here -->
-                            </div>
                             <div align="center" style="margin-top:15px;">
-                                <a href="#" onclick="sendEmail()" class="btn btn-lg btn-primary btn-block">
-                                    <p>Email List</p>
+                                <a href="#" onclick="logout()" class="btn btn-lg btn-primary btn-block logout">
+                                    <p>Log Out</p>
                                 </a>
                             </div>
                         </div>
@@ -340,6 +354,11 @@
                     message => alert("mail sent successfully")
                 );
             }
+
+            function logout() {
+                window.location = "./HomePage.html";
+            }
+
         </script>
 
         <script src="js/CookieFunctions.js"></script>

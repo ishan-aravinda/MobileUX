@@ -15,7 +15,9 @@
             left: 0px;
             position: absolute;
             margin-top: 1%;
-            margin-left: 1% z-index: 999;
+            margin-left: 1%;
+            z-index: 999;
+
         }
     </style>
 
@@ -26,7 +28,7 @@
 
 
     <div class="back">
-        <a><img src="images/back-arrow2.png" onclick="goback()" height="30" width="30"></a>
+        <a><img src="images/back-arrow2.png" onclick="goBack()" height="30" width="30"></a>
     </div>
 
 
@@ -66,10 +68,6 @@
     <script>
         $('marker').attr('rel', 'external');
 
-        function goback() {
-            window.location = "./GamePage1.html ";
-        }
-
         function onLoad() {
             var location = getUrlParams();
             alert(location);
@@ -90,7 +88,10 @@
         }
 
         function goBack() {
-            window.history.back();
+            window.location = "./GamePage1.html";
+        }
+
+    </script>
         }
     </script>
 
