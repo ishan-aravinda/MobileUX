@@ -26,14 +26,16 @@
 
 <body style='margin : 0px; overflow: hidden;'>
 
-
     <div class="back">
         <a><img src="images/back-arrow2.png" onclick="goBack()" height="30" width="30"></a>
     </div>
 
 
-    <div style="position: fixed;top:1vh;right:1vw;  text-align: center; z-index: 1;color: black;">
-        <h1> <a href="./GamePageQR.html" class="button">QR Scanner</a></h1>
+    <div style="position: fixed;top:1vh;right:1vw;  text-align: center; z-index: 1;">
+        <!-- <h1> <a href="./GamePageQR.html" class="button">QR Scanner</a></h1> -->
+        <a href="./GamePageQR.html" style="position: fixed;top:1vh;right:1vw;  z-index: 1;">
+            <h2 class="h2-style">QR Scanner</h2>
+        </a>
     </div>
 
     <a-scene a-scene embedded arjs='sourceType: webcam; trackingMethod: best;

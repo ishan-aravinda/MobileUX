@@ -481,7 +481,7 @@ form p {
 }
 
 .form-bookingForm input[type="date"] {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0) !important;
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -568,6 +568,13 @@ form p {
     .div.main {
         height: auto !important;
         width: auto !important;
+    }
+    .ui-page-theme-a a {
+        font-weight: 500 !important;
+        font-size: 14px !important;
+    }
+    .ui-navbar li .ui-btn {
+        font-size: 14px !important;
     }
 }
 
