@@ -52,10 +52,10 @@
 
 <body class="text-center">
     <div data-role="page">
-	
-<div class="back">
-    <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30" ></a>
-</div>
+
+        <div class="back">
+            <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30"></a>
+        </div>
 
 
         <div data-role="content">
@@ -71,7 +71,7 @@
                 <button data-role="none" onclick="location.href='./signUpWithEmail.html'" class="ui-button ui-widget lwe"><img src="./images/mail.png"  rel="external"  alt="Email" width="25" height="25" style="margin-right: 8px;"> Sign-up with email</button>
 
                 <div class="login-text-bottom">
-                    <p>Already have an Account? <a href="login.html" class="ui-link">Login</a></p>
+                    <p>Already have an Account? <a href="login.html" class="ui-link" rel="external">Login</a></p>
                 </div>
             </form>
         </div>
@@ -87,7 +87,7 @@
     <script>
         function goback() {
             window.location = "./login.html";
-            }
+        }
     </script>
 </body>
 
