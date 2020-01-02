@@ -154,6 +154,21 @@
             </div>
 <!--        </div>-->
 
+        <div data-role="popup" id="popupAccount" data-theme="a" class="ui-corner-all">
+
+            <form>
+
+                <div style="padding:10px 20px;background-color: black;">
+
+                    <h3>Mail sent successfully</h3>
+
+
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Ok</a>
+                </div>
+            </form>
+        </div>
+
+
         <div data-role="content" class="form">
             <br>
             <form action="" id="bookingForm">
@@ -216,7 +231,7 @@
                             </div>
                             <br>
                             <div align="center" style="margin-top:15px;">
-                                <a href="#popupAccount" onclick="sendEmail()" data-rel="popup" class="btn btn-lg btn-primary btn-block logout">
+                                <a href="#popupAccount" onclick="sendEmail()" data-rel="popup" data-position-to="window" class="btn btn-lg btn-primary btn-block logout">
                                     <p>Email List</p>
                                 </a>
                             </div>
@@ -244,19 +259,6 @@
 
         </div>
 
-        <div data-role="popup" id="popupAccount" data-theme="a" class="ui-corner-all">
-
-            <form>
-
-                <div style="padding:10px 20px;background-color: black;">
-
-                    <h3>Mail sent successfully</h3>
-
-
-                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Ok</a>
-                </div>
-            </form>
-        </div>
 
 
         <div class="footer1">
@@ -366,12 +368,12 @@
                     emailBody = emailBody + x[i].innerHTML + " \n <br>";
                     var image;
 
-                    alert(x[i].innerHTML);
+                    // alert(x[i].innerHTML);
 
                     if (x[i].innerHTML = "British Museum Great Court") {
                         image = "https://i.imgur.com/TPhSrqo.jpg";
                         emailBody = emailBody + "<img src=" + image + "> <br>";
-                        alert(emailBody);
+                        // alert(emailBody);
                     } else if (x[i].innerHTML = "Buckingham Palace") {
                         image = "https://i.imgur.com/Q9jA9tr.jpg";
                         emailBody = emailBody + "<img src=" + image + "> <br>";
@@ -387,7 +389,7 @@
                     } else if (x[i].innerHTML = "Tower of London") {
                         image = "https://i.imgur.com/qUmfaAi.jpg";
                         emailBody = emailBody + "<img src=" + image + "> <br>";
-                        alert(emailBody);
+                        // alert(emailBody);
                     }
                 }
                 Email.send({
