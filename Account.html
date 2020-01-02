@@ -117,7 +117,7 @@
 <body onload="onLoad()">
 
     <div class="body" data-role="page">
-        <div align="center" data-role="header">
+<!--        <div align="center" data-role="header">-->
             <div data-role="header">
 
                 <div data-demo-html="true">
@@ -134,7 +134,8 @@
                                 <a class="nav-link" href="./aboutus.html" rel="external">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="display: inline;" href="./booking.html" rel="external">Book Tickets</a>
+                                <a class="nav-link" style="display: inline;" href="./booking.html" rel="external">Book
+                                    Tickets</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="./login.html" rel="external">Play</a>
@@ -151,7 +152,7 @@
                 </div>
                 <!--/demo-html -->
             </div>
-        </div>
+<!--        </div>-->
 
         <div data-role="content" class="form">
             <br>
@@ -207,19 +208,19 @@
                     <br>
                     <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right">
                         <h2 class="h2-style">Favourites</h2>
-                    
+
                         <ul data-role="listview" data-inset="false">
-                        
+
                             <div id="favourites">
                                 <!-- favourite list goes here -->
                             </div>
                             <br>
                             <div align="center" style="margin-top:15px;">
-                                <a href="#" onclick="sendEmail()" class="btn btn-lg btn-primary btn-block logout">
+                                <a href="#popupAccount" onclick="sendEmail()" data-rel="popup" class="btn btn-lg btn-primary btn-block logout">
                                     <p>Email List</p>
                                 </a>
                             </div>
-                            </ul>
+                        </ul>
                     </div>
 
                     <div class="ui-block-a element" style="margin-top:20px">
@@ -242,6 +243,21 @@
             </form>
 
         </div>
+
+        <div data-role="popup" id="popupAccount" data-theme="a" class="ui-corner-all">
+
+            <form>
+
+                <div style="padding:10px 20px;background-color: black;">
+
+                    <h3>Mail sent successfully</h3>
+
+
+                    <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Ok</a>
+                </div>
+            </form>
+        </div>
+
 
         <div class="footer1">
             <br>
@@ -344,10 +360,35 @@
             function sendEmail() {
                 var x = document.getElementById("favourites").querySelectorAll("p");
                 var emailAddress = getCookie("email");
-                var emailBody;
+                var emailBody = "";
                 var i;
                 for (i = 0; i < x.length; i++) {
                     emailBody = emailBody + x[i].innerHTML + " \n <br>";
+                    var image;
+
+                    alert(x[i].innerHTML);
+
+                    if (x[i].innerHTML = "British Museum Great Court") {
+                        image = "https://i.imgur.com/TPhSrqo.jpg";
+                        emailBody = emailBody + "<img src=" + image + "> <br>";
+                        alert(emailBody);
+                    } else if (x[i].innerHTML = "Buckingham Palace") {
+                        image = "https://i.imgur.com/Q9jA9tr.jpg";
+                        emailBody = emailBody + "<img src=" + image + "> <br>";
+                    } else if (x[i].innerHTML = "Coco-Cola london-eye") {
+                        image = "https://i.imgur.com/dgl3m7f.jpg";
+                        emailBody = emailBody + "<img src=" + image + "> <br>";
+                    } else if (x[i].innerHTML = "Kensington Palace") {
+                        image = "https://i.imgur.com/fmgvFCL.jpg";
+                        emailBody = emailBody + "<img src=" + image + "> <br>";
+                    } else if (x[i].innerHTML = "Madame Tussauds") {
+                        image = "https://i.imgur.com/MPI7Dqy.jpg";
+                        emailBody = emailBody + "<img src=" + image + "> <br>";
+                    } else if (x[i].innerHTML = "Tower of London") {
+                        image = "https://i.imgur.com/qUmfaAi.jpg";
+                        emailBody = emailBody + "<img src=" + image + "> <br>";
+                        alert(emailBody);
+                    }
                 }
                 Email.send({
                     Host: "smtp.gmail.com",
@@ -358,7 +399,7 @@
                     Subject: "These are your favourite locations..",
                     Body: emailBody,
                 }).then(
-                    message => alert("mail sent successfully")
+                    // message => alert("mail sent successfully")
                 );
             }
 

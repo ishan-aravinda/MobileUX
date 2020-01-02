@@ -1,0 +1,403 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title>User Account</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Include JQuery Mobile -->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/signin.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+
+
+</head>
+<style>
+    body {
+        background-image: url("./images/bg.png ");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        background-attachment: fixed;
+    }
+
+    select {
+        float: left !important;
+    }
+
+    .ui-select,
+    .ui-btn {
+        border: 0.25px solid white !important;
+        background-color: transparent !important;
+        color: white !important;
+        text-shadow: none !important;
+    }
+
+    .btn-block {
+        height: 40px !important;
+    }
+
+    input[type=submit] {
+        background-color: #ffa630;
+        color: black;
+    }
+
+    .ui-page {
+        background: transparent;
+    }
+
+    .ui-content {
+        background: transparent;
+    }
+
+    .ui-field-contain,
+    .ui-mobile fieldset.ui-field-contain {
+        padding: 0px;
+    }
+
+    .ui-body-a,
+    .ui-page-theme-a .ui-body-inherit,
+    html .ui-bar-a .ui-body-inherit,
+    html .ui-body-a .ui-body-inherit,
+    html body .ui-group-theme-a .ui-body-inherit,
+    html .ui-panel-page-container-a {
+        background-color: transparent !important;
+    }
+
+    .ui-page-theme-b .ui-btn,
+    html .ui-bar-b .ui-btn,
+    html .ui-body-b .ui-btn,
+    html body .ui-group-theme-b .ui-btn,
+    html head+body .ui-btn.ui-btn-b,
+    .ui-page-theme-b .ui-btn:visited,
+    html .ui-bar-b .ui-btn:visited,
+    html .ui-body-b .ui-btn:visited,
+    html body .ui-group-theme-b .ui-btn:visited,
+    html head+body .ui-btn.ui-btn-b:visited {
+        border: 1px solid white !important;
+    }
+
+    body {
+        background-image: url("./images/bg.png ");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .form-control {
+        border: 1px solid white !important;
+        color: white;
+        background-color: transparent !important;
+        width: 100%;
+        margin: auto;
+    }
+</style>
+
+<body onload="onLoad()">
+
+<div class="body" data-role="page">
+    <div align="center" data-role="header">
+        <div data-role="header">
+
+            <div data-demo-html="true">
+
+                <div data-role="navbar" data-grid="c">
+                    <a href="./HomePage.html" rel="external" style="z-index: 999; margin-top:none; float: left; border: none !important;"><img rel="external" style="z-index: 99999;" src="./images/logo.png" alt="Treasure Train Logo" width="180vw" height="20%"></a>
+                    <a href="./account.html" rel="external" style="z-index: 999; float: right; border: none !important;"><img rel="external" style="z-index: 99999;" src="./images/user.png" alt="Profile" width="40vw" height="20%"></a>
+
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./HomePage.html" rel="external">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./aboutus.html" rel="external">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="display: inline;" href="./booking.html" rel="external">Book
+                                Tickets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./login.html" rel="external">Play</a>
+                        </li>
+                    </ul>
+
+                    <!-- <ul>
+      <li><a href="./HomePage.html">Home</a></li>
+      <li><a href="./booking.html" class="ui-btn-active">Book Tickets</a></li>
+      <li><a href="./aboutus.html">About Us</a></li>
+      <li><a href="./login.html">Play Game</a></li>
+    </ul> -->
+                </div>
+            </div>
+            <!--/demo-html -->
+        </div>
+    </div>
+
+    <div data-role="content" class="form">
+        <br>
+        <form action="" id="bookingForm">
+
+            <div class="ui-grid-b ui-responsive">
+
+                <h2 class="h2-style">Profile Details</h2>
+
+                <div class="ui-block-a element">
+                    <p style="float:left;">Username</p><br />
+                    <div class="ui-field-contain">
+                        <input data-role="none" type="email" class="form-control" name="username" id="username" placeholder="Username" readonly>
+                    </div>
+                </div>
+                <br>
+                <div class="ui-block-a element">
+                    <p style="float:left;">Email</p><br />
+                    <div class="ui-field-contain">
+                        <input data-role="none" type="email" class="form-control" name="email" id="email" placeholder="Email" readonly>
+                    </div>
+                </div>
+                <br>
+
+                <h2 class="h2-style">Change Password</h2><br>
+
+                <div class="ui-block-a element">
+                    <p style="float:left;">Enter Old Password</p><br />
+                    <div class="ui-field-contain">
+                        <input data-role="none" type="email" class="form-control" name="oldpass" placeholder="Old Password">
+                    </div>
+                </div>
+                <br>
+                <div class="ui-block-a element">
+                    <p style="float:left;">Enter New Password</p><br />
+                    <div class="ui-field-contain">
+                        <input data-role="none" type="email" class="form-control" name="newpass" placeholder="New Password">
+                    </div>
+                </div>
+                <br>
+                <div class="ui-block-a element">
+                    <p style="float:left;">Confirm New Password</p><br />
+                    <div class="ui-field-contain">
+                        <input data-role="none" type="email" class="form-control" name="confirmnewpass" placeholder="Confirm Password">
+                    </div>
+                </div>
+                <br>
+                <div align="center" style="margin-top:15px;">
+                    <a href="#" onclick="" class="btn btn-lg btn-primary btn-block">
+                        <p>Update Password</p>
+                    </a>
+                </div>
+                <br>
+                <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right">
+                    <h2 class="h2-style">Favourites</h2>
+
+                    <ul data-role="listview" data-inset="false">
+
+                        <div id="favourites">
+                            <!-- favourite list goes here -->
+                        </div>
+                        <br>
+                        <div align="center" style="margin-top:15px;">
+                            <a href="#" onclick="sendEmail()" class="btn btn-lg btn-primary btn-block logout">
+                                <p>Email List</p>
+                            </a>
+                        </div>
+                    </ul>
+                </div>
+
+                <div class="ui-block-a element" style="margin-top:20px">
+                    <div id="favourites-div" class="panel">
+                        <div align="center" style="margin-top:15px;">
+                            <a href="#" onclick="logout()" class="btn btn-lg btn-primary btn-block logout">
+                                <p>Log Out</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <br><br>
+
+
+
+        </form>
+
+    </div>
+
+    <div class="footer1">
+        <br>
+        <p>About Us</p>
+        <p>It is a startup that has a fun process to book tickets and visit places in London. Book tickets, Play Game, Review Places all in one platform.</p>
+        <div class="div3">
+            <a href="https://www.facebook.com/Train/">
+                <img src="images/fb.JPG" height="30" width="30" style="margin-right:10px">
+            </a>
+            <a href="https://twitter.com/train?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor">
+                <img src="images/twitter.JPG" height="30" width="30" style="margin-right:10px">
+            </a>
+            <a href="https://in.linkedin.com/in/train-to-prosper-67a5a4111?trk=people-guest_people_search-card">
+                <img src="images/linkedin.JPG" height="30" width="30" style="margin-right:10px">
+            </a>
+            <a href="https://github.com/2016102/MobileUX/tree/ishan">
+                <img src="images/github.JPG" height="30" width="30" style="margin-right:10px">
+            </a>
+        </div>
+        <br>
+        <div id="div1">
+            <a href="https://goo.gl/maps/Mg9jvXbMktWD1LVd7">
+                <img src="images/location.JPG" height="25" width="25">
+                <p>Galle Road Dehiwala</p>
+            </a>
+            <a href="tel:0094769675159">
+                <img src="images/phone.JPG" height="25" width="25">
+                <p>0094769675159</p>
+            </a>
+            <a href='mailto:treasuretrain@gmail.com'>
+                <img src="images/email.JPG" height="25" width="25">
+                <p>treasuretrain@gmail.com</p>
+            </a>
+        </div>
+    </div>
+
+
+    <script src="js/CookieFunctions.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+    <script src="https://www.gstatic.com/firebasejs/7.5.0/firebase.js"></script>
+    <!-- <script src="js/firebase-init.js"></script> -->
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCiqITMCVsyHKwdbDgFCowNRwLsfLqiYOY",
+            authDomain: "train-cde96.firebaseapp.com",
+            databaseURL: "https://train-cde96.firebaseio.com",
+            projectId: "train-cde96",
+            storageBucket: "train-cde96.appspot.com",
+            messagingSenderId: "45911183152",
+            appId: "1:45911183152:web:b27375f04a3b109b5442f5",
+            measurementId: "G-B29GE7SWEX"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.database();
+    </script>
+
+    <script>
+        function onLoad() {
+            var coockie = getCookie("uid");
+            var favouriteList = document.getElementById("favourites");
+            var username = document.getElementById("username");
+            var email = document.getElementById("email");
+
+            return firebase.database().ref('/users/' + coockie).once('value').then(function(snapshot) {
+
+                username.value = snapshot.val().fname + " " + snapshot.val().lname;
+                email.value = snapshot.val().email
+
+                snapshot.forEach((child) => {
+                    child.forEach((child2) => {
+                        var newItem = document.createElement("p");
+                        var text = document.createTextNode(child2.val().locationId);
+                        newItem.appendChild(text);
+                        favouriteList.appendChild(newItem);
+                    });
+                });
+            });
+        }
+
+        function sendEmail() {
+            var x = document.getElementById("favourites").querySelectorAll("p");
+            var emailAddress = getCookie("email");
+            var emailBody = "";
+            var i;
+            for (i = 0; i < x.length; i++) {
+                emailBody = emailBody + x[i].innerHTML + " \n <br>";
+                var image;
+
+                alert(x[i].innerHTML);
+
+                if (x[i].innerHTML = "British Museum Great Court") {
+                    image = "https://i.imgur.com/TPhSrqo.jpg";
+                    emailBody = emailBody + "<img src=" + image + "> <br>";
+                    alert(emailBody);
+                } else if (x[i].innerHTML = "Buckingham Palace") {
+                    image = "https://i.imgur.com/Q9jA9tr.jpg";
+                    emailBody = emailBody + "<img src=" + image + "> <br>";
+                } else if (x[i].innerHTML = "Coco-Cola london-eye") {
+                    image = "https://i.imgur.com/dgl3m7f.jpg";
+                    emailBody = emailBody + "<img src=" + image + "> <br>";
+                } else if (x[i].innerHTML = "Kensington Palace") {
+                    image = "https://i.imgur.com/fmgvFCL.jpg";
+                    emailBody = emailBody + "<img src=" + image + "> <br>";
+                } else if (x[i].innerHTML = "Madame Tussauds") {
+                    image = "https://i.imgur.com/MPI7Dqy.jpg";
+                    emailBody = emailBody + "<img src=" + image + "> <br>";
+                } else if (x[i].innerHTML = "Tower of London") {
+                    image = "https://i.imgur.com/qUmfaAi.jpg";
+                    emailBody = emailBody + "<img src=" + image + "> <br>";
+                    alert(emailBody);
+                }
+            }
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "treasuretrain1@gmail.com",
+                Password: "TreasureTrain123",
+                To: emailAddress,
+                From: "treasuretrain1@gmail.com",
+                Subject: "These are your favourite locations..",
+                Body: emailBody,
+            }).then(
+                message => alert("mail sent successfully")
+            );
+        }
+
+        function logout() {
+            window.location = "./HomePage.html";
+        }
+    </script>
+
+    <script src="js/CookieFunctions.js"></script>
+
+
+
+</div>
+</body>
+
+</html>

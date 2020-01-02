@@ -38,11 +38,11 @@
         background-position: center center;
         background-attachment: fixed;
     }
-    
+
     select {
         float: left !important;
     }
-    
+
     .ui-select,
     .ui-btn {
         border: 0.25px solid white !important;
@@ -50,25 +50,25 @@
         color: white !important;
         text-shadow: none !important;
     }
-    
+
     input[type=submit] {
         background-color: #ffa630;
         color: black;
     }
-    
+
     .ui-page {
         background: transparent;
     }
-    
+
     .ui-content {
         background: transparent;
     }
-    
+
     .ui-field-contain,
     .ui-mobile fieldset.ui-field-contain {
         padding: 0px;
     }
-    
+
     .ui-page-theme-b .ui-btn,
     html .ui-bar-b .ui-btn,
     html .ui-body-b .ui-btn,
@@ -81,13 +81,13 @@
     html head+body .ui-btn.ui-btn-b:visited {
         border: 1px solid white !important;
     }
-    
+
     body {
         background-image: url("./images/bg.png ");
         background-repeat: no-repeat;
         background-size: cover;
     }
-    
+
     .form-control {
         border: 1px solid white !important;
         color: white;
@@ -99,7 +99,27 @@
 
 <body>
 
+
     <div class="body" data-role="page">
+
+        <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
+
+            <form>
+
+                <div style="padding:10px 20px;background-color: black;">
+
+                    <h3>Confirm your Booking</h3>
+
+                    <p id="confirmation-msg"> test </p>
+
+                    <button id="customButton" type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Proceed
+                        to Payment</button>
+                </div>
+            </form>
+        </div>
+
+
+
         <div align="center" data-role="header">
             <div data-role="header">
 
@@ -225,23 +245,11 @@
                     <a href="#popupLogin" onclick="loadPopup()" data-rel="popup" data-position-to="window" class="btn btn-lg btn-primary btn-block" data-transition="pop" data-position-to="window">Book
                         Now</a>
 
-                    <div data-role="popup" id="popupLogin" data-theme="a" class="ui-corner-all">
-
-                        <form>
-
-                            <div style="padding:10px 20px;background-color: black;">
-
-                                <h3>Confirm your Booking</h3>
-
-                                <p id="confirmation-msg"> test </p>
-
-                                <button id="customButton" type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Proceed
-                                    to Payment</button>
-                            </div>
-                        </form>
-                    </div>
 
                 </div>
+
+
+
                 <br>
                 <br>
                 <div align="centre" class="ui-block-b">
