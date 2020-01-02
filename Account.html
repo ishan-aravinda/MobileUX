@@ -177,7 +177,7 @@
 
                 <div style="padding:10px 20px;background-color: black;">
 
-                    <h3>Mail sent successfully</h3>
+                    <h3 id="confirmation-msg">OH Gawd</h3>
 
 
                     <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Ok</a>
@@ -233,7 +233,7 @@
                     </div>
                     <br>
                     <div align="center" style="margin-top:15px;">
-                        <a href="#" onclick="" class="btn btn-lg btn-primary btn-block">
+                        <a href="#popupAccount" onclick="loadPopup(1)" data-rel="popup" data-position-to="window" class="btn btn-lg btn-primary btn-block">
                             <p>Update Password</p>
                         </a>
                     </div>
@@ -387,6 +387,7 @@
             }
 
             function sendEmail() {
+                loadPopup(0)
                 var x = document.getElementById("favourites").querySelectorAll("p");
                 var emailAddress = getCookie("email");
                 var emailBody = "";
@@ -437,6 +438,21 @@
                 eraseCookie("email");
                 window.location = "./HomePage.html";
             }
+
+
+            function loadPopup(typeOfpop) {
+
+
+                var popUpText = "Mail sent successfully";
+                var popUpText2 = "Password Changed Successfully";
+                if (typeOfpop==1){
+                    popUpText = popUpText2;
+                }
+
+                document.getElementById("confirmation-msg").innerHTML = popUpText;
+
+            }
+
         </script>
 
         <script src="js/CookieFunctions.js"></script>
