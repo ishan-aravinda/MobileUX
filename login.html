@@ -84,8 +84,10 @@
 
                 <label data-role="none" for="inputEmail" class="sr-only"> Email address</label>
                 <input style="color: white;" data-role="none" type="email" id="inputEmail" class="form-control" placeholder="Email address" autofocus>
+                <span class="error"><p id="email_error"></p></span>
                 <label data-role="none" for="inputPassword" class="sr-only"> Password</label>
                 <input style="color: white;" data-role="none" type="password" id="inputPassword" class="form-control" placeholder="Password" autofocus>
+                <span class="error"><p id="pass_error"></p></span>
                 <div align="center" style="margin-top:15px;">
                     <input type="button" data-role="none" class="btn btn-lg btn-primary btn-block" type="submit" onclick="signup()" value="Login">
                     <!-- <button data-role="none" class="btn btn-lg btn-primary btn-block" type="submit" onclick="signup()" Login</button> </div> -->
@@ -120,8 +122,26 @@
             function signup() {
                 var email = document.getElementById("inputEmail").value;
                 var password = document.getElementById("inputPassword").value;
+                var submit = true;
+                
+                if  (email.length == 0) {
+                    inputEmail_error = "Please enter your email";
+                    document.getElementById("email_error").innerHTML = inputEmail_error; 
+                    submit = false;
+                }if (password.length ==0) {
+                    inputPassword_error = "Please enter your password";
+                    document.getElementById("pass_error").innerHTML = inputPassword_error;
+                    submit = false;
+                } if (email.length != 0 && password.length !=0) {
+
+                    document.getElementById("inputEmail").onkeyup =  document.getElementById("email_error").innerHTML = "";
+document.getElementById("inputPassword").onkeyup = document.getElementById("pass_error").innerHTML = "";
+
 
                 firebase.auth().signInWithEmailAndPassword(email, password).then(function(e) {
+
+
+
 
                     var uid = (e.user.uid);
 
@@ -136,6 +156,7 @@
                     var errorMessage = error.message;
                     // ...
                 });
+            }
             }
 
             function goBack() {
