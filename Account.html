@@ -406,12 +406,10 @@
             }
 
             function logout() {
+                eraseCookie("uid");
+                eraseCookie("email");
                 window.location = "./HomePage.html";
             }
-
-            $(window).on("orientationchange", function(event) {
-                alert("test");
-            });
         </script>
 
         <script src="js/CookieFunctions.js"></script>
