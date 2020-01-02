@@ -72,8 +72,13 @@
     .ui-mobile fieldset.ui-field-contain {
         padding: 0px;
     }
-
-    .ui-body-a, .ui-page-theme-a .ui-body-inherit, html .ui-bar-a .ui-body-inherit, html .ui-body-a .ui-body-inherit, html body .ui-group-theme-a .ui-body-inherit, html .ui-panel-page-container-a {
+    
+    .ui-body-a,
+    .ui-page-theme-a .ui-body-inherit,
+    html .ui-bar-a .ui-body-inherit,
+    html .ui-body-a .ui-body-inherit,
+    html body .ui-group-theme-a .ui-body-inherit,
+    html .ui-panel-page-container-a {
         background-color: transparent !important;
     }
     
@@ -202,18 +207,20 @@
                     <br>
                     <div data-role="collapsible" data-collapsed-icon="carat-d" data-expanded-icon="carat-u" data-iconpos="right">
                         <h2 class="h2-style">Favourites</h2>
-                            <ul data-role="listview" data-inset="false">
-                                <div id="favourites">
-                                    <!-- favourite list goes here -->
-                                </div>
-                                <br>
-                                <div align="center" style="margin-top:15px;">
+                    
+                        <ul data-role="listview" data-inset="false">
+                        
+                            <div id="favourites">
+                                <!-- favourite list goes here -->
+                            </div>
+                            <br>
+                            <div align="center" style="margin-top:15px;">
                                 <a href="#" onclick="sendEmail()" class="btn btn-lg btn-primary btn-block logout">
                                     <p>Email List</p>
                                 </a>
-                                </div>
-                            </ul>
-                        </div>
+                            </div>
+                            </ul>
+                    </div>
 
                     <div class="ui-block-a element" style="margin-top:20px">
                         <div id="favourites-div" class="panel">
@@ -340,7 +347,7 @@
                 var emailBody;
                 var i;
                 for (i = 0; i < x.length; i++) {
-                    emailBody = emailBody + x[i].innerHTML + " \n";
+                    emailBody = emailBody + x[i].innerHTML + " \n <br>";
                 }
                 Email.send({
                     Host: "smtp.gmail.com",
@@ -358,7 +365,6 @@
             function logout() {
                 window.location = "./HomePage.html";
             }
-
         </script>
 
         <script src="js/CookieFunctions.js"></script>

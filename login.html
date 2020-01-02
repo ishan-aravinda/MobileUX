@@ -66,18 +66,18 @@
 <body class="text-center" onload="onLoad()">
     <div data-role="page">
 
-	
-<div class="back">
-    <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30" ></a>
-</div>
+
+        <div class="back">
+            <a><img src="images/back-arrow.png" onclick="goback()" height="30" width="30"></a>
+        </div>
 
         <div data-role="content">
 
             <form class="form-signin">
                 <h1 class="h3 mb-5 font-weight-normal h2-style"> Login</h1>
-                <button data-role="none" class="ui-button ui-widget lwfb"><img src="./images/facebook.JPG"  rel="external"  alt="Facebook" width="25" height="25" style="margin-right: 8px;"> Login with
+                <button onclick="loginWithFacebook()" data-role="none" class="ui-button ui-widget lwfb"><img src="./images/facebook.JPG"  rel="external"  alt="Facebook" width="25" height="25" style="margin-right: 8px;"> Login with
                     Facebook</button>
-                <button data-role="none" class="ui-button ui-widget lwg"><img src="./images/google.png"  rel="external"  alt="Google" width="25" height="25" style="margin-right: 8px;"> Login with
+                <button onclick="loginWithGoogle()" data-role="none" class="ui-button ui-widget lwg"><img src="./images/google.png"  rel="external"  alt="Google" width="25" height="25" style="margin-right: 8px;"> Login with
                     Google</button>
 
                 <p class="or-alignment"> or</p>
@@ -107,7 +107,7 @@
 
         <script>
             function goback() {
-            window.location = "./HomePage.html";
+                window.location = "./HomePage.html";
             }
 
             function onLoad() {
@@ -140,6 +140,16 @@
 
             function goBack() {
                 window.history.back();
+            }
+
+            function loginWithFacebook() {
+                var provider = new firebase.auth.FacebookAuthProvider();
+                firebase.auth().signInWithRedirect(provider);
+            }
+
+            function loginWithGoogle() {
+                var provider = new firebase.auth.GoogleAuthProvider();
+                firebase.auth().signInWithRedirect(provider);
             }
         </script>
 
