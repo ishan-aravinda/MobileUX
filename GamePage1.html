@@ -68,6 +68,14 @@
             margin-top: 50px !important;
         }
         
+        @media only screen and (min-device-width: 414px) and (max-device-width: 767px) and (orientation: landscape) {
+            #map {
+                height: 50%;
+                margin-left: 40px !important;
+                margin-bottom: 20px !important;
+            }
+        }
+        
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
             #map {
                 height: 75%;
@@ -111,7 +119,8 @@
                                 <a class="nav-link" href="./aboutus.html" rel="external">About Us</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" style="display: inline;" href="./booking.html" rel="external">Book Tickets</a>
+                                <a class="nav-link" style="display: inline;" href="./booking.html" rel="external">Book
+                                    Tickets</a>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="./login.html" rel="external">Play</a>
@@ -322,6 +331,10 @@
                 infoWindow1.open(map, TowerOfLondonmarker6);
             });
         }
+
+        $(window).on("orientationchange", function(event) {
+            window.location = "./GamePage1.html";
+        });
     </script>
 
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVIISj0N44ABEfP1SP_BREeYmSOU_5kT0 &libraries=visualization&callback=initMap">

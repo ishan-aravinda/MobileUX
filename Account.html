@@ -117,42 +117,42 @@
 <body onload="onLoad()">
 
     <div class="body" data-role="page">
-<!--        <div align="center" data-role="header">-->
-            <div data-role="header">
+        <!--        <div align="center" data-role="header">-->
+        <div data-role="header">
 
-                <div data-demo-html="true">
+            <div data-demo-html="true">
 
-                    <div data-role="navbar" data-grid="c">
-                        <a href="./HomePage.html" rel="external" style="z-index: 999; margin-top:none; float: left; border: none !important;"><img rel="external" style="z-index: 99999;" src="./images/logo.png" alt="Treasure Train Logo" width="180vw" height="20%"></a>
-                        <a href="./account.html" rel="external" style="z-index: 999; float: right; border: none !important;"><img rel="external" style="z-index: 99999;" src="./images/user.png" alt="Profile" width="40vw" height="20%"></a>
+                <div data-role="navbar" data-grid="c">
+                    <a href="./HomePage.html" rel="external" style="z-index: 999; margin-top:none; float: left; border: none !important;"><img rel="external" style="z-index: 99999;" src="./images/logo.png" alt="Treasure Train Logo" width="180vw" height="20%"></a>
+                    <a href="./account.html" rel="external" style="z-index: 999; float: right; border: none !important;"><img rel="external" style="z-index: 99999;" src="./images/user.png" alt="Profile" width="40vw" height="20%"></a>
 
-                        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="./HomePage.html" rel="external">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./aboutus.html" rel="external">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" style="display: inline;" href="./booking.html" rel="external">Book
-                                    Tickets</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./login.html" rel="external">Play</a>
-                            </li>
-                        </ul>
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="./HomePage.html" rel="external">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./aboutus.html" rel="external">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" style="display: inline;" href="./booking.html" rel="external">Book
+                                Tickets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./login.html" rel="external">Play</a>
+                        </li>
+                    </ul>
 
-                        <!-- <ul>
+                    <!-- <ul>
           <li><a href="./HomePage.html">Home</a></li>
           <li><a href="./booking.html" class="ui-btn-active">Book Tickets</a></li>
           <li><a href="./aboutus.html">About Us</a></li>
           <li><a href="./login.html">Play Game</a></li>
         </ul> -->
-                    </div>
                 </div>
-                <!--/demo-html -->
             </div>
-<!--        </div>-->
+            <!--/demo-html -->
+        </div>
+        <!--        </div>-->
 
         <div data-role="popup" id="popupAccount" data-theme="a" class="ui-corner-all">
 
@@ -408,6 +408,10 @@
             function logout() {
                 window.location = "./HomePage.html";
             }
+
+            $(window).on("orientationchange", function(event) {
+                alert("test");
+            });
         </script>
 
         <script src="js/CookieFunctions.js"></script>
