@@ -41,7 +41,7 @@ $(function() {
                 "bgcolor": "black",
                 "color": "white",
                 "text": "Click on these cards to get more info about the displayed locations",
-                "position": "BL",
+                "position": "TL",
                 "time": 5000
             },
             {
