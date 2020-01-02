@@ -351,9 +351,12 @@
                     snapshot.forEach((child) => {
                         child.forEach((child2) => {
                             var newItem = document.createElement("p");
+                            var checkbox = document.createElement("input");
+                            checkbox.type = 'checkbox';
                             var text = document.createTextNode(child2.val().locationId);
                             newItem.appendChild(text);
                             favouriteList.appendChild(newItem);
+                            favouriteList.appendChild(checkbox);
                         });
                     });
                 });
