@@ -379,8 +379,8 @@
                             var text = document.createTextNode(child2.val().locationId);
                             newItem.appendChild(text);
                             favouriteList.appendChild(newItem);
-                            favouriteList.appendChild(checkbox);
-                            favouriteList.appendChild(label);
+                            // favouriteList.appendChild(checkbox);
+                            // favouriteList.appendChild(label);
                         });
                     });
                 });
@@ -445,14 +445,13 @@
 
                 var popUpText = "Mail sent successfully";
                 var popUpText2 = "Password Changed Successfully";
-                if (typeOfpop==1){
+                if (typeOfpop == 1) {
                     popUpText = popUpText2;
                 }
 
                 document.getElementById("confirmation-msg").innerHTML = popUpText;
 
             }
-
         </script>
 
         <script src="js/CookieFunctions.js"></script>
