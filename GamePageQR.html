@@ -212,7 +212,7 @@
                         <div class="ui-bar ui-bar-a" style="height:60px; width: 100%; text-align: center; font-size: 30px;">Prasadi</div>
                     </div>
                     <div class="ui-block-b">
-                        <div class="ui-bar ui-bar-a" style="height:60px; width: 80%; text-align: center; font-size: 30px;">1991</div>
+                        <div class="ui-bar ui-bar-a" id ="scorecard" style="height:60px; width: 80%; text-align: center; font-size: 30px;">1990</div>
                     </div>
                 </div>
                 <!-- /grid-a -->
@@ -227,6 +227,15 @@
         function myFunction() {
             alert("Hello! I am an alert box!");
         }
+
+
+        function loadPopup() {
+            loadPopup = function(){};
+
+            document.getElementById("scorecard").innerHTML = 2040;
+
+        }
+
     </script>
 
 
@@ -285,6 +294,7 @@
         });
         scanner.addListener('scan', function(content) {
             alert("Congratulations!!  You have completed the " + content + " challenge. \n You have recieved 50 pints");
+            loadPopup()
 
             window.open(content, '_blank');
 
